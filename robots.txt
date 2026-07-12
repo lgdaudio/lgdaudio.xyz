@@ -1,0 +1,5 @@
+# robots.txt — Sacha Music Charts (lgdaudio.xyz)
+User-agent: *
+Allow: /
+
+Sitemap: https://lgdaudio.xyz/sitemap.xml
