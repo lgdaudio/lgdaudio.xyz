@@ -1,0 +1,13 @@
+# Dossiers de travail / non destinés à la mise en ligne
+Files/
+.claude/
+lgdaudio-siteweb/
+
+# macOS
+.DS_Store
+**/.DS_Store
+._*
+
+# Divers
+*.log
+Thumbs.db
