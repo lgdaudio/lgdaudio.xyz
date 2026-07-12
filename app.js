@@ -41,7 +41,7 @@
   ];
 
   const FORMATIONS = [
-    { name: 'Banger System', img: '/assets/banger-system.png', tagline: 'Le système complet pour produire des tracks qui claquent, du premier son au mix final.', url: 'https://www.bonzai.pro/sacha_musiccharts/shop/58l0_6456/banger-system?p=pri_G6E2_10824' },
+    { name: 'Banger System', img: '/assets/banger-system.png', tagline: 'Le système complet pour produire des tracks qui claquent, du premier son au mix final.', url: 'https://www.bonzai.pro/sacha_musiccharts/shop/58l0_6456/banger-system?p=pri_4nXv_10827' },
   ];
 
   const TEMOIGNAGES = [
