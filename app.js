@@ -41,6 +41,7 @@
   ];
 
   const FORMATIONS = [
+    { name: 'MIX Essentials', img: '/assets/mix-essentials.png', tagline: 'Le bundle ultime pour maîtriser les bases du mixage.', url: '/mix-essentials/' },
     { name: 'Banger System', img: '/assets/banger-system.png', tagline: 'Le système complet pour produire des tracks qui claquent, du premier son au mix final.', url: 'https://www.bonzai.pro/sacha_musiccharts/shop/58l0_6456/banger-system?p=pri_4nXv_10827' },
   ];
 
@@ -277,11 +278,11 @@
           el('span', { style: "font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#eeb927;" }, 'Formation'),
           el('h3', { style: "font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;line-height:1.05;margin:10px 0 12px;" }, f.name),
           el('p', { style: 'color:#9a968c;font-weight:300;font-size:15px;line-height:1.55;flex:1;' }, f.tagline),
-          el('a', {
+          el('a', Object.assign({
             class: 'btn-primary',
-            href: f.url, target: '_blank', rel: 'noopener',
+            href: f.url,
             style: "margin-top:26px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;background:#eeb927;color:#000;text-decoration:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;",
-          }, 'Découvrir la formation →'))
+          }, f.url.charAt(0) === '/' ? {} : { target: '_blank', rel: 'noopener' }), 'Découvrir la formation →'))
       ));
     });
   }
