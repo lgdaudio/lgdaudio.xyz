@@ -41,8 +41,9 @@
   ];
 
   const FORMATIONS = [
-    { name: 'MIX Essentials', img: '/assets/mix-essentials-card.png', tagline: 'Le bundle ultime pour maîtriser les bases du mixage.', url: '/mix-essentials/' },
     { name: 'Banger System', img: '/assets/banger-system.png', tagline: 'Le système complet pour produire des tracks qui claquent, du premier son au mix final.', url: 'https://www.bonzai.pro/sacha_musiccharts/shop/58l0_6456/banger-system?p=pri_4nXv_10827' },
+    { name: 'Mastering System', img: '/assets/mastering-system-card.png', tagline: 'Le système pour réussir ton mastering en 1h, à chaque fois.', url: '/mastering-system/' },
+    { name: 'MIX Essentials', img: '/assets/mix-essentials-card.png', tagline: 'Le bundle ultime pour maîtriser les bases du mixage.', url: '/mix-essentials/' },
   ];
 
   const TEMOIGNAGES = [
