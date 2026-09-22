@@ -48,155 +48,315 @@
   </button>
 </nav>
 <main class="smc-main">
+<style>
+  .me-li{ display:flex; gap:10px; margin-bottom:10px; }
+  .me-chk-w{ flex:none; color:rgba(245,243,238,0.5); font-size:12px; line-height:1.5; }
+  .me-x-red{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(255,90,90,0.12); border:1px solid rgba(255,90,90,0.4); color:#ff6b6b; font-size:11px; line-height:1; margin-top:1px; }
+  .me-chk-g{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:5px; background:rgba(74,222,128,0.14); border:1px solid rgba(74,222,128,0.45); color:#4ade80; font-size:12px; line-height:1; margin-top:1px; }
+  /* Photo qui remplit la hauteur du texte voisin (desktop) */
+  .me-fillrow{ align-items:stretch; }
+  .me-fillrow > figure{ align-self:stretch; margin:0; position:relative; overflow:hidden; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,0.5); }
+  .me-fillrow > figure > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  @media (max-width:760px){
+    .me-fillrow{ align-items:center; flex-direction:column-reverse; }
+    .me-fillrow > figure{ position:static; width:100%; }
+    .me-fillrow > figure > img{ position:static; width:100%; height:auto; }
+  }
+  /* Extraits audio à la même hauteur que le texte voisin */
+  .me-audiorow{ align-items:stretch; }
+  .me-audiorow > div:first-child{ display:flex; flex-direction:column; justify-content:center; }
+  .me-audiorow > .me-audio-grid{ align-self:stretch; grid-auto-rows:1fr; }
+  .me-audiorow > .me-audio-grid > div{ display:flex; flex-direction:column; justify-content:center; }
+  @media (max-width:760px){
+    .me-audiorow{ align-items:center; }
+    .me-audiorow > div:first-child{ display:block; }
+    .me-audiorow > .me-audio-grid{ grid-auto-rows:auto; }
+  }
+  /* Photo au-dessous du texte sur mobile */
+  @media (max-width:760px){ .me-rev{ flex-direction:column-reverse; } }
+  /* Tableau comparatif */
+  .cmp-tbl{ width:100%; border-collapse:collapse; min-width:640px; font-family:'Manrope',sans-serif; font-size:14px; }
+  .cmp-tbl th, .cmp-tbl td{ padding:13px 14px; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); color:#b8b4aa; }
+  .cmp-tbl thead th{ font-weight:600; color:#8a8781; font-size:13px; vertical-align:bottom; }
+  .cmp-tbl tbody th{ text-align:left; font-weight:500; color:#d8d4ca; }
+  .cmp-tbl .mix{ background:rgba(238,185,39,0.10); }
+  .cmp-tbl thead th.mix{ color:#eeb927; font-weight:700; font-size:15px; border-top-left-radius:10px; border-top-right-radius:10px; }
+  .cmp-tbl tbody tr:last-child td.mix{ border-bottom-left-radius:10px; border-bottom-right-radius:10px; }
+  .cmp-ok{ color:#4ade80; font-weight:700; }
+  .cmp-no{ color:#ff6b6b; font-weight:700; }
+</style>
 
   <!-- HERO -->
   <section style="position:relative;overflow:hidden;padding:clamp(26px,4.5vw,56px) clamp(20px,5vw,72px) clamp(24px,3.5vw,40px);">
     <div class="hero-bg" style="position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(60% 55% at 78% 12%, rgba(238,185,39,0.14), transparent 70%),radial-gradient(50% 50% at 10% 90%, rgba(238,185,39,0.06), transparent 70%),linear-gradient(rgba(238,185,39,0.045) 1px, transparent 1px),linear-gradient(90deg, rgba(238,185,39,0.045) 1px, transparent 1px);background-size:auto, auto, 64px 64px, 64px 64px;-webkit-mask-image:radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);mask-image:radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);animation:smcDrift 14s linear infinite;"></div>
-    <div style="position:relative;z-index:2;max-width:680px;margin:0 auto;text-align:center;">
-      <h1 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(32px,6vw,54px);line-height:0.95;letter-spacing:-0.02em;margin:14px 0 8px;">MASTERING <span style="color:#eeb927;">System</span></h1>
-      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:clamp(16px,1.8vw,19px);line-height:1.5;color:#d8d4ca;margin:0 auto 14px;max-width:520px;">Le système pour réussir ton mastering à chaque fois.</p>
-      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#8a8781;margin:0 auto 28px;max-width:520px;">Ma promesse : un mastering réussi en 1h top chrono. Achat unique, accès à vie.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;">
-        <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Mastering System →</a>
+    <div style="position:relative;z-index:2;max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <span style="display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:0.02em;color:#eeb927;margin-bottom:10px;">Mastering System</span>
+        <h1 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 18px;color:#f5f3ee;">Le système ultime pour <span style="color:#eeb927;">réussir</span> ton <span style="color:#eeb927;">mastering</span> en 1h, <span style="color:#eeb927;">à chaque fois</span>.</h1>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0 0 24px;">Des modules vidéos ultra complets pour comprendre et maîtriser la sculpture du spectre fréquentiel, de la dynamique et avoir un loudness compétitif, <strong style="color:#f5f3ee;font-weight:600;">pour que tu ne doutes plus jamais de tes mastering.</strong></p>
+        <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Commence avec Mastering System aujourd'hui →</a>
       </div>
-      <figure style="margin:clamp(28px,4vw,44px) auto 0;max-width:520px;">
+      <figure style="flex:1 1 320px;margin:0;max-width:460px;">
         <img src="/assets/mastering-system-couverture.jpg" alt="Mastering System — le système pour réussir ton mastering en 1h" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,0.6);">
       </figure>
     </div>
   </section>
 
-  <!-- PROBLÈME -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(20px,5vw,72px) 0;">
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin-bottom:6px;">Tu crées des instru, enregistres ta voix, tu mix, puis… t'as essayé le mastering.</p>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin-bottom:20px;">Mais soyons honnêtes une seconde. Voici tes problèmes (ceux que tu connais trop bien) :</p>
-    <ul style="list-style:none;padding:0;margin:0 0 20px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:12px;"><span style="flex:none;">❌</span><span>Tu essayes des traitements… mais ça sonne cheap.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:12px;"><span style="flex:none;">❌</span><span>Tu passes des heures à bidouiller sans jamais être sûr de ce que tu fais.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:12px;"><span style="flex:none;">❌</span><span>YouTube t'a retourné le cerveau : trop d'infos, zéro structure.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:12px;"><span style="flex:none;">❌</span><span>Presets, plugins, IA, mastering auto… et pourtant rien ne claque vraiment.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:12px;"><span style="flex:none;">❌</span><span>Ou même pire : tu ne comprends pas ce qu'il faut faire, à part utiliser des limiteurs.</span></li>
-    </ul>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:16px;">Sauf que le mastering, c'est indispensable pour sortir un son. Il te permet tout simplement d'être à la hauteur des standards musicaux modernes.</p>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:0;">Sans mastering, tu n'as pas le volume compétitif, pas la puissance ni la consistance des sons pros. En gros : t'es loin d'une qualité de son comparable ne serait-ce qu'aux artistes indépendants qui passent par un ingé son.</p>
+  <!-- PROBLÈME (photo + texte) -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px) 0;">
+    <div class="me-rev" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:center;">
+      <figure style="flex:1 1 280px;margin:0;max-width:380px;">
+        <img src="/assets/inge-son-retouche.png" alt="Sacha, ingénieur du son, en studio" loading="lazy" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.5);">
+      </figure>
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin:0 0 6px;"><strong style="color:#f5f3ee;font-weight:600;">Tu crées des instru, enregistres ta voix, tu mix, puis… t'as essayé le mastering.</strong></p>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin:0 0 20px;">Mais soyons honnêtes une seconde. Voici tes problèmes (ceux que tu connais trop bien) :</p>
+        <ul style="list-style:none;padding:0;margin:0 0 20px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
+          <li class="me-li" style="margin-bottom:14px;"><span class="me-x-red">✕</span><span>Tu essayes des traitements… mais ça sonne cheap.</span></li>
+          <li class="me-li" style="margin-bottom:14px;"><span class="me-x-red">✕</span><span>Tu passes des heures à bidouiller sans jamais être sûr de ce que tu fais.</span></li>
+          <li class="me-li" style="margin-bottom:14px;"><span class="me-x-red">✕</span><span>YouTube t'a retourné le cerveau : trop d'infos, zéro structure.</span></li>
+          <li class="me-li" style="margin-bottom:14px;"><span class="me-x-red">✕</span><span>Presets, plugins, IA, mastering auto… et pourtant rien ne claque vraiment.</span></li>
+          <li class="me-li" style="margin-bottom:14px;"><span class="me-x-red">✕</span><span>Ou même pire : tu ne comprends pas ce qu'il faut faire, à part utiliser des limiteurs.</span></li>
+        </ul>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Sauf que le mastering, c'est indispensable pour sortir un son. Il te permet tout simplement d'être à la hauteur des standards musicaux modernes.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- CE QUE TU VEUX -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,3.8vw,40px) clamp(20px,5vw,72px) 0;">
-    <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#f5f3ee;margin-bottom:14px;">Toi ce que tu veux, c'est un master qui sonne pro :</p>
-    <ul style="list-style:none;padding:0;margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">✅</span><span>clean mais pas pauvre</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">✅</span><span>brillant mais pas froid</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">✅</span><span>précis mais pas agressif</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:0;"><span style="color:#eeb927;flex:none;">✅</span><span>fort mais pas écrasé ni sans vie</span></li>
-    </ul>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:0;">Avec des basses profondes et contrôlées, qui ressortent même sur ton enceinte bluetooth toute pourrie.</p>
+  <!-- BANDEAU : sans mastering -->
+  <section style="background:#141414;padding:clamp(28px,4vw,48px) clamp(20px,5vw,72px);margin-top:clamp(44px,6vw,80px);">
+    <p style="max-width:880px;margin:0 auto;text-align:center;font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#f5f3ee;">Sans mastering, tu n'as pas le volume compétitif, pas la puissance ni la consistance des sons pros. En gros : t'es loin d'une qualité de son comparable ne serait-ce qu'aux artistes indépendants qui passent par un ingé son.</p>
   </section>
 
-  <!-- VOICI MASTERING SYSTEM + CRÉDIBILITÉ -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,3.8vw,40px) clamp(20px,5vw,72px) 0;">
-    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px;color:#f5f3ee;">Voici <span style="color:#eeb927;">Mastering System</span></h2>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:16px;">Mon tout nouveau programme qui t'apprend LE système pour réussir ton mastering à chaque fois. Ma promesse : <strong style="color:#f5f3ee;font-weight:500;">un mastering réussi en 1h top chrono</strong>.</p>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:16px;">Pas juste un mastering qui sonne fort. Le genre de mastering où tu reçois des commentaires du style « le master sonne trop bien », ou encore « la profondeur des basses est incroyable » (on m'a dit ça plusieurs fois).</p>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:0;">Depuis 10 ans, j'ai réalisé des centaines de mastering. Alors non, j'ai jamais bossé pour Rihanna ni The Weeknd. Mais j'ai compris comment avoir un mastering de qualité professionnelle : pendant mes années d'études d'ingénieur du son, mes jobs dans des studios d'enregistrement et de mixage à New York et Paris, et surtout pendant des années à comprendre chaque aspect du mastering en profondeur.</p>
-  </section>
+  <!-- CE QUE TU VEUX + SOLUTION + CRÉDIBILITÉ -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px) 0;">
 
-  <!-- PREUVES SOCIALES -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(20px,3vw,32px) clamp(20px,5vw,72px) 0;">
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#9a968c;margin-bottom:14px;">Voici ce que l'un des derniers artistes pour qui j'ai bossé m'a envoyé quand il a reçu son fichier WAV masterisé par mes soins :</p>
-    <img src="/assets/mix-avis-master.png" alt="Retour client après réception d'un master de Sacha Music Charts" loading="lazy" style="width:100%;max-width:520px;height:auto;display:block;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.45);margin-bottom:28px;">
-
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#9a968c;margin-bottom:14px;">Ou encore les retours d'anciens clients :</p>
-    <div style="column-width:230px;column-gap:16px;margin-bottom:28px;">
-      <img src="/assets/avis-2.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-3.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-4.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-5.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-6.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-7.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
-      <img src="/assets/avis-10.png" alt="Retour d'un ancien client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+    <!-- Rangée : ce que tu veux (gauche) + encadré Mastering System (droite) -->
+    <div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:stretch;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#f5f3ee;margin:0 0 14px;"><strong style="color:#f5f3ee;font-weight:600;">Toi ce que tu veux, c'est un master qui sonne pro :</strong></p>
+        <ul style="list-style:none;padding:0;margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
+          <li class="me-li"><span class="me-chk-g">✓</span><span>clean mais pas pauvre</span></li>
+          <li class="me-li"><span class="me-chk-g">✓</span><span>brillant mais pas froid</span></li>
+          <li class="me-li"><span class="me-chk-g">✓</span><span>précis mais pas agressif</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-chk-g">✓</span><span>fort mais pas écrasé ni sans vie</span></li>
+        </ul>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Avec des basses profondes et contrôlées, qui ressortent même sur ton enceinte bluetooth toute pourrie.</p>
+      </div>
+      <div style="flex:1 1 280px;min-width:0;display:flex;">
+        <div style="border:1px solid rgba(74,222,128,0.28);background:rgba(74,222,128,0.06);border-radius:12px;padding:18px 22px;width:100%;display:flex;align-items:center;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span class="me-chk-g" style="margin-top:2px;">✓</span>
+            <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#f5f3ee;margin:0;">Alors voici <strong style="color:#eeb927;font-weight:600;">Mastering System</strong>, mon programme qui t'apprend LE système pour réussir ton mastering à chaque fois. En 1h top chrono.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#9a968c;margin-bottom:14px;">Et ces personnes qui saluent ma pédagogie :</p>
-    <img src="/assets/mix-avis-pedago.png" alt="Commentaires saluant la pédagogie de Sacha Music Charts" loading="lazy" style="width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.45);margin-bottom:16px;">
-    <img src="/assets/temoignage-9.png" alt="Commentaire saluant la pédagogie de Sacha Music Charts" loading="lazy" style="width:100%;max-width:520px;height:auto;display:block;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.45);margin-bottom:8px;">
+    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:clamp(28px,4vw,44px) 0 0;max-width:760px;">Pas juste un mastering qui sonne fort. Mais le genre de mastering où tu reçois des commentaires du style « le master sonne trop bien », ou encore « la profondeur des basses est incroyable » (on m'a dit ça plusieurs fois).</p>
+
+    <!-- Rangée : photo image-pp (gauche) + présentation (droite) -->
+    <div class="me-fillrow" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;margin-top:clamp(52px,8vw,92px);">
+      <figure style="flex:1 1 280px;max-width:380px;">
+        <img src="/assets/image-pp.png" alt="Sacha Music Charts" loading="lazy">
+      </figure>
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;"><strong style="color:#f5f3ee;font-weight:600;">Je m'appelle Sacha</strong>, et depuis 10 ans, j'ai réalisé des centaines de mastering. Alors non, j'ai jamais bossé pour Rihanna ni The Weeknd. Mais j'ai compris comment avoir un mastering de qualité professionnelle : pendant mes années d'études d'ingénieur du son, mes jobs dans des studios d'enregistrement et de mixage à New York et Paris, et surtout pendant des années à comprendre chaque aspect du mastering en profondeur.</p>
+      </div>
+    </div>
+
+    <!-- Rangée : texte (gauche) + extraits audio (droite) -->
+    <div class="me-audiorow" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;margin-top:clamp(52px,8vw,92px);">
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;"><strong style="color:#f5f3ee;font-weight:600;">Aujourd'hui, je suis comme toi</strong> : j'ai juste un ordinateur, un casque que je connais par cœur ; pas de studio avec une acoustique traitée, pas d'enceintes à 3000€, pas de matériel hardware à 2000€ pièce. Et j'ai les mêmes résultats que des studios pro à 1000€ la journée. Voilà des exemples audio de ce que j'ai masterisé :</p>
+      </div>
+      <div class="me-audio-grid" style="flex:1 1 280px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Pop/Électronique</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Trap</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-2.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Afro House</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-3.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Rock/Électronique</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-5.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:clamp(40px,6vw,64px);">
+      <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Mastering System →</a>
+    </div>
   </section>
 
-  <!-- ARTISTES QUI RÉUSSISSENT -->
-  <section style="max-width:920px;margin:0 auto;padding:clamp(20px,3vw,32px) clamp(20px,5vw,72px) 0;">
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#9a968c;margin:0 0 22px;max-width:640px;">Et tous ces artistes qui réussissent enfin à obtenir des résultats grâce à mes méthodes d'enseignement :</p>
-    <div style="column-width:230px;column-gap:16px;">
+  <!-- BANDEAU : preuves -->
+  <section style="background:#141414;padding:clamp(28px,4vw,52px) clamp(20px,5vw,72px);margin-top:clamp(56px,7vw,96px);">
+    <p style="max-width:900px;margin:0 auto;text-align:center;font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#f5f3ee;">J'ai accompagné des centaines d'apprentis ingénieurs du son, beatmakers et artistes, tous satisfaits de l'aide que je leur ai apportée, et ils saluent mes méthodes d'enseignement et ma pédagogie. Et j'ai également masterisé pour des centaines d'artistes, tous satisfaits de mon travail.</p>
+  </section>
+  <!-- MUR D'AVIS -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(24px,3.5vw,40px) clamp(20px,5vw,72px) 0;">
+    <div style="column-width:200px;column-gap:16px;">
+      <img src="/assets/mix-avis-master.png" alt="Retour client après réception d'un master de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-2.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-3.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-1.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-4.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/mix-avis-pedago.png" alt="Commentaires saluant la pédagogie de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-5.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-3.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-6.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-4.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-7.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-9.png" alt="Commentaire saluant la pédagogie de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-7.png" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-10.png" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-8.png" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
       <img src="/assets/temoignage-10.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
     </div>
   </section>
 
   <!-- CE QUE TU OBTIENS -->
-  <section style="max-width:760px;margin:0 auto;padding:clamp(30px,4.5vw,50px) clamp(20px,5vw,72px) 0;">
-    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin-bottom:12px;color:#f5f3ee;">Ce que tu obtiens avec Mastering System</h2>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:16px;">Des modules vidéo qui te donnent <strong style="color:#f5f3ee;font-weight:500;">toutes les clés pour masteriser tes morceaux toi-même, de A à Z</strong>, et obtenir un master pro en 1h, sans bidouiller au hasard.</p>
-    <video controls preload="metadata" playsinline style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.55);background:#000;margin:0 0 24px;">
-      <source src="/assets/mastering-system-preview.mp4" type="video/mp4">
-      Ton navigateur ne peut pas lire cette vidéo. <a href="/assets/mastering-system-preview.mp4" style="color:#eeb927;">Télécharge-la ici.</a>
-    </video>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;margin-bottom:12px;">En plus des modules vidéo, tu reçois :</p>
-    <ul style="list-style:none;padding:0;margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">➕</span><span>Un accès exclusif à une <strong style="color:#f5f3ee;font-weight:500;">communauté Telegram privée</strong> (je réponds personnellement à toutes vos questions).</span></li>
-    </ul>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin-bottom:0;">Le tout sous forme d'un <strong style="color:#eeb927;font-weight:600;">achat unique</strong> : tu auras accès à Mastering System et à ses mises à jour <strong style="color:#eeb927;font-weight:600;">à vie</strong>.</p>
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) 0;">
+    <div style="max-width:760px;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin-bottom:12px;color:#f5f3ee;">Ce que tu obtiens avec Mastering System</h2>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0 0 clamp(24px,4vw,40px);">Des modules vidéo qui te donnent <strong style="color:#f5f3ee;font-weight:500;">toutes les clés pour masteriser tes morceaux toi-même, de A à Z</strong>, et obtenir un master pro en 1h, sans bidouiller au hasard.</p>
+    </div>
+
+    <div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:1 1 300px;min-width:0;">
+        <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:15px;line-height:1.55;color:#b8b4aa;">
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Maîtrise des corrections à l'EQ (standard et dynamique)</span></li>
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Maîtrise des boosts avec émulations et EQ dynamiques</span></li>
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Maîtrise de l'utilisation des compresseurs pour sculpter la dynamique sans retirer le punch</span></li>
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Maîtrise de l'utilisation de limiteurs, clippers et maximizers pour aller chercher un niveau LUFS compétitif</span></li>
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Techniques de pro secrètes simples avec saturation et autres outils pour booster le volume perçu</span></li>
+          <li class="me-li"><span class="me-chk-w">✓</span><span>Apprentissage des notions de dB (dB FS, dB LUFS, etc.)</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Connaissance des normes de niveaux pour les plateformes de streaming (Deezer, Spotify, YouTube, Apple Music, etc.)</span></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 320px;min-width:0;">
+        <video controls preload="metadata" playsinline poster="/assets/mastering-system-couverture.jpg" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.55);background:#000;">
+          <source src="/assets/mastering-system-preview.mp4" type="video/mp4">
+          Ton navigateur ne peut pas lire cette vidéo. <a href="/assets/mastering-system-preview.mp4" style="color:#eeb927;">Télécharge-la ici.</a>
+        </video>
+      </div>
+    </div>
+
+    <div style="max-width:760px;margin-top:clamp(28px,4vw,40px);">
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;margin:0 0 12px;">En plus des modules vidéo, tu reçois :</p>
+      <ul style="list-style:none;padding:0;margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
+        <li style="display:flex;gap:12px;margin-bottom:10px;"><span class="me-chk-w">✓</span><span>Un accès exclusif à une <strong style="color:#f5f3ee;font-weight:500;">communauté Telegram privée</strong> (je réponds personnellement à toutes vos questions).</span></li>
+      </ul>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Le tout sous forme d'un <strong style="color:#eeb927;font-weight:600;">achat unique</strong> : tu auras accès à Mastering System et à ses mises à jour <strong style="color:#eeb927;font-weight:600;">à vie</strong>.</p>
+    </div>
+    <div style="text-align:center;margin-top:clamp(32px,5vw,48px);">
+      <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Mastering System →</a>
+    </div>
   </section>
 
-  <!-- CE QUE CE N'EST PAS -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,3.8vw,40px) clamp(20px,5vw,72px) 0;">
-    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que Mastering System n'est PAS</h2>
-    <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">❌</span><span>Une formation fleuve de 60h.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">❌</span><span>Un truc théorique chiant.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">❌</span><span>Un « regarde-moi bidouiller pendant 2h ».</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">❌</span><span>Une usine à gaz dépendante de templates.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">❌</span><span>Un énième produit fait pour vendre, pas pour aider.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:0;"><span style="flex:none;">❌</span><span>Une formation chère pour n'apprendre que la théorie.</span></li>
-    </ul>
+  <!-- CE QUE CE N'EST PAS / CE QUE TU GAGNES (2 colonnes) -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) 0;">
+    <div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que Mastering System n'est PAS</h2>
+        <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.5;color:#b8b4aa;">
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Une formation fleuve de 60h.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un truc théorique chiant.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un « regarde-moi bidouiller pendant 2h ».</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Une usine à gaz dépendante de templates.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un énième produit fait pour vendre, pas pour aider.</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-x-red">✕</span><span>Une formation chère pour n'apprendre que la théorie.</span></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 280px;min-width:0;">
+        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que tu gagnes réellement</h2>
+        <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.5;color:#b8b4aa;">
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Une méthode claire : moins de doutes, plus de flow.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Un output régulier sans te prendre la tête.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Un programme qui te donne toutes les clés pour faire tes mastering toi-même, de A à Z.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>La confiance de dire : « Oui, ce son est fini. »</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Finaliser tes morceaux avec un rendu pro, sans studio haut de gamme.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Entendre ce qui ne va pas dans ton mix.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Être capable de sortir des morceaux prêts à être diffusés.</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-chk-g">✓</span><span>Sublimer tes morceaux.</span></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- CE QUE TU GAGNES -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,3.8vw,40px) clamp(20px,5vw,72px) 0;">
-    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que tu gagnes réellement</h2>
-    <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">✅</span><span>Des mastering qui <strong style="color:#f5f3ee;font-weight:500;">sonnent pro</strong>, en 1h.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">✅</span><span>Une méthode claire : moins de doutes, plus de flow.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">✅</span><span>Un output régulier sans te prendre la tête.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">✅</span><span>Un programme qui te donne toutes les clés pour faire tes mastering toi-même, de A à Z.</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:11px;"><span style="flex:none;">✅</span><span>La confiance de dire : « Oui, ce son est fini. »</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:0;"><span style="flex:none;">✅</span><span>Le respect. Le tien, et celui des autres.</span></li>
-    </ul>
-  </section>
-
-  <!-- À QUI C'EST DESTINÉ -->
-  <section style="max-width:720px;margin:0 auto;padding:clamp(24px,3.8vw,40px) clamp(20px,5vw,72px) 0;">
-    <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">À qui c'est destiné</h2>
-    <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">→</span><span>Bedroom producers</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">→</span><span>Artistes indés</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">→</span><span>Autodidactes frustrés</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:10px;"><span style="color:#eeb927;flex:none;">→</span><span>Créatifs qui refusent de rester bloqués au stade « brouillon »</span></li>
-      <li style="display:flex;gap:12px;margin-bottom:0;"><span style="color:#eeb927;flex:none;">→</span><span>Apprentis ingénieurs du son</span></li>
-    </ul>
+  <!-- À QUI C'EST DESTINÉ (bandeau) -->
+  <section style="background:#141414;padding:clamp(28px,4vw,48px) clamp(20px,5vw,72px);margin-top:clamp(44px,6vw,80px);">
+    <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin:0 0 18px;color:#f5f3ee;">À qui c'est destiné</h2>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.4;color:#b8b4aa;">
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Bedroom producers</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Artistes indés</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Autodidactes frustrés</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Créatifs qui refusent de rester bloqués au stade « brouillon »</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Apprentis ingénieurs du son</span></li>
+      </ul>
+    </div>
   </section>
 
   <!-- PRIX + CTA -->
-  <section id="offre" style="max-width:720px;margin:0 auto;padding:clamp(30px,4.5vw,50px) clamp(20px,5vw,72px) 100px;scroll-margin-top:90px;">
-    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8a8781;text-align:center;margin-bottom:10px;">Prix normal : <span style="display:inline-block;font-size:20px;line-height:1;vertical-align:middle;padding:0 3px;color:#8a8781;background-image:linear-gradient(to bottom right, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor calc(50% + 1px), transparent calc(50% + 1px));">197€</span></p>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;text-align:center;margin:0 auto 26px;max-width:520px;">Cette semaine, c'est la semaine de lancement. Tu peux le choper à moitié prix.</p>
-    <div style="border:1px solid rgba(238,185,39,0.3);border-radius:16px;padding:clamp(28px,4vw,44px);background:linear-gradient(180deg,rgba(238,185,39,0.07),transparent 60%),#0a0a0a;text-align:center;">
-      <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(38px,7vw,56px);line-height:1;color:#eeb927;letter-spacing:-0.02em;">97€</div>
-      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;margin:12px 0 26px;">Offre de lancement · cette semaine · Paiement 1x ou 2x</p>
+  <section id="offre" style="max-width:820px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,5vw,72px) 100px;scroll-margin-top:90px;text-align:center;">
+    <div style="max-width:460px;margin:0 auto;border:1px solid rgba(238,185,39,0.3);border-radius:16px;padding:clamp(28px,4vw,44px);background:linear-gradient(180deg,rgba(238,185,39,0.07),transparent 60%),#0a0a0a;text-align:center;">
+      <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(38px,7vw,56px);line-height:1;color:#eeb927;letter-spacing:-0.02em;">147€</div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;margin:12px 0 26px;">Achat unique · Accès à vie · Paiement jusqu'à 3 fois sans frais</p>
       <a class="btn-primary" href="https://www.squidlane.com/buy/offr_fy9_IXGCB4" target="_blank" rel="noopener" id="cta-buy" style="display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Mastering System →</a>
     </div>
-    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:28px 0 0;text-align:center;max-width:560px;margin-left:auto;margin-right:auto;">Si tu veux que ta musique parle pour toi, progresser vite et sortir tes sons sans excuse, <strong style="color:#f5f3ee;font-weight:500;">Mastering System est fait pour toi.</strong></p>
+    <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:28px auto 0;max-width:560px;">Si tu veux que ta musique parle pour toi, progresser vite et sortir tes sons sans excuse, <strong style="color:#f5f3ee;font-weight:500;">Mastering System est fait pour toi.</strong></p>
+
+    <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:clamp(17px,2.2vw,22px);line-height:1.35;color:#f5f3ee;margin:clamp(44px,6vw,72px) auto 20px;max-width:640px;text-align:center;">Tous les autres moyens te coûtent plus cher en argent, en temps ou en efficacité</p>
+    <div style="overflow-x:auto;margin:0;">
+      <table class="cmp-tbl">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="mix">Mastering System</th>
+            <th>IA</th>
+            <th>L'apprendre toi-même</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Coût</th><td class="mix"><strong style="color:#eeb927;">147€</strong></td><td>Abonnement mensuel et tokens limités</td><td>Gratuit</td></tr>
+          <tr><th>Pédagogie claire et éprouvée</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td><span class="cmp-no">✕</span></td></tr>
+          <tr><th>Accès à vie</th><td class="mix"><span class="cmp-ok">✓</span></td><td>Sans certitude</td><td>—</td></tr>
+          <tr><th>Communauté privée</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td><span class="cmp-no">✕</span></td></tr>
+          <tr><th>Théorie + applications concrètes</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td>Oui, mais aucune structure</td></tr>
+          <tr><th>Temps avant résultats</th><td class="mix">Quelques jours à quelques semaines</td><td>Aléatoire</td><td>Des années</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="max-width:720px;margin:clamp(44px,6vw,72px) auto 0;text-align:left;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;color:#f5f3ee;">Questions fréquentes</h2>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">C'est pour les débutants ou les confirmés ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Pour les débutants et les plus avancés qui n'obtiennent pas les résultats qu'ils souhaitent. On part des bases et on va jusqu'aux réflexes de pro. Tu avances à ton rythme et tu reviens sur ce dont tu as besoin, quand tu veux.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Ça marche avec mon DAW (Logic, FL Studio, Ableton…) ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui. Ce sont des principes de mastering universels, pas des presets figés : ils s'appliquent dans n'importe quel logiciel, avec les outils que tu as déjà.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Ça marche pour mon style de musique ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui, pour tout style de musique : les principes de mastering sont universels. Rap, pop, rock, électro, afro…</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Il me faut du matériel cher ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Non. Un ordinateur, un casque ou des enceintes corrects et ton DAW suffisent. J'obtiens des masters pro avec exactement ce type de setup.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">L'accès est vraiment à vie ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui. Achat unique, accès à vie, et tu profites des nouveaux contenus et mises à jour sans repayer.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">En combien de temps je vois des résultats ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Dès les premières sessions. Les méthodes sont faites pour être appliquées tout de suite sur tes propres morceaux, pas pour accumuler de la théorie sans but concret.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Comment se passe le paiement ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">En une fois ou jusqu'à 3 fois sans frais, de façon 100% sécurisée. Tu reçois ton accès juste après l'achat.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Combien coûte un mastering pro ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Un mastering pro coûte en moyenne entre 50 et 100€ selon le studio. Avec Mastering System, tu rentabilises le programme en 3 morceaux terminés maximum.</p>
+    </div>
+    <div style="text-align:center;margin-top:clamp(36px,5vw,52px);">
+      <a class="btn-primary" href="https://www.squidlane.com/buy/offr_fy9_IXGCB4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Commence avec Mastering System aujourd'hui →</a>
+    </div>
   </section>
 
 </main>
@@ -227,7 +387,7 @@
       "url": "https://lgdaudio.xyz/mastering-system/",
       "offers": {
         "@type": "Offer",
-        "price": "97",
+        "price": "147",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
         "url": "https://lgdaudio.xyz/mastering-system/"
@@ -240,10 +400,31 @@
         { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://lgdaudio.xyz/formations/" },
         { "@type": "ListItem", "position": 3, "name": "Mastering System", "item": "https://lgdaudio.xyz/mastering-system/" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "C'est pour les débutants ou les confirmés ?", "acceptedAnswer": { "@type": "Answer", "text": "Pour les débutants et les plus avancés qui n'obtiennent pas les résultats qu'ils souhaitent. On part des bases et on va jusqu'aux réflexes de pro. Tu avances à ton rythme et tu reviens sur ce dont tu as besoin, quand tu veux." } },
+        { "@type": "Question", "name": "Ça marche avec mon DAW (Logic, FL Studio, Ableton…) ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Ce sont des principes de mastering universels, pas des presets figés : ils s'appliquent dans n'importe quel logiciel, avec les outils que tu as déjà." } },
+        { "@type": "Question", "name": "Ça marche pour mon style de musique ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, pour tout style de musique : les principes de mastering sont universels. Rap, pop, rock, électro, afro…" } },
+        { "@type": "Question", "name": "Il me faut du matériel cher ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Un ordinateur, un casque ou des enceintes corrects et ton DAW suffisent. J'obtiens des masters pro avec exactement ce type de setup." } },
+        { "@type": "Question", "name": "L'accès est vraiment à vie ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Achat unique, accès à vie, et tu profites des nouveaux contenus et mises à jour sans repayer." } },
+        { "@type": "Question", "name": "En combien de temps je vois des résultats ?", "acceptedAnswer": { "@type": "Answer", "text": "Dès les premières sessions. Les méthodes sont faites pour être appliquées tout de suite sur tes propres morceaux, pas pour accumuler de la théorie sans but concret." } },
+        { "@type": "Question", "name": "Comment se passe le paiement ?", "acceptedAnswer": { "@type": "Answer", "text": "En une fois ou jusqu'à 3 fois sans frais, de façon 100% sécurisée. Tu reçois ton accès juste après l'achat." } },
+        { "@type": "Question", "name": "Combien coûte un mastering pro ?", "acceptedAnswer": { "@type": "Answer", "text": "Un mastering pro coûte en moyenne entre 50 et 100€ selon le studio. Avec Mastering System, tu rentabilises le programme en 3 morceaux terminés maximum." } }
+      ]
     }
   ]
 }
 </script>
 <script src="/app.js"></script>
+<script>
+// Un seul lecteur audio à la fois : jouer l'un met les autres en pause.
+document.querySelectorAll('audio').forEach(function(a){
+  a.addEventListener('play', function(){
+    document.querySelectorAll('audio').forEach(function(o){ if(o !== a) o.pause(); });
+  });
+});
+</script>
 </body>
 </html>
