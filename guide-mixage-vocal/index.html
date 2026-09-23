@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocal Chain Cheat Sheet — 12 réglages pour transformer tes voix</title>
+<meta name="description" content="Le guide complet de la chaîne de traitement vocal : 12 réglages essentiels, plugins recommandés et alternatives gratuites, pour transformer tes voix comme un pro.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Sacha Music Charts — LGD Audio">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='26' cy='50' r='6' fill='%23eeb927'/%3E%3Ctext x='40' y='46' font-family='Arial' font-size='15' font-weight='700' fill='%23f5f3ee'%3ESMC%3C/text%3E%3Ctext x='40' y='62' font-family='Arial' font-size='7' letter-spacing='1' fill='%23eeb927'%3EMUSIC CHARTS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<nav class="smc-nav">
+  <a href="/" class="smc-logo" aria-label="Accueil — Sacha Music Charts">
+    <span class="smc-dot"></span><span class="smc-logo-text">SACHA <b>MUSIC CHARTS</b></span>
+  </a>
+  <div id="nav-links" class="smc-nav-links">
+    <a href="/" class="smc-nav-link">Accueil</a>
+    <a href="/videos/" class="smc-nav-link">Vidéos</a>
+    <a href="/ressources/" class="smc-nav-link">Ressources</a>
+    <a href="/formations/" class="smc-nav-link">Formations</a>
+    <a href="/mastering/" class="smc-nav-link">Mastering</a>
+    <a href="/revtime/" class="smc-nav-link">RevTime</a>
+    <a href="/a-propos/" class="smc-nav-link">À propos</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<main class="smc-main">
+<style>
+  .g-wrap{ max-width:760px; margin:0 auto; padding:0 clamp(20px,5vw,32px); }
+  .g-hero{ text-align:center; padding:clamp(40px,7vw,80px) clamp(20px,5vw,32px) clamp(24px,4vw,36px); position:relative; overflow:hidden; }
+  .g-hero-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(60% 60% at 50% 0%, rgba(238,185,39,0.14), transparent 70%); }
+  .g-eyebrow{ position:relative; z-index:1; display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:#eeb927; border:1px solid rgba(238,185,39,0.35); border-radius:4px; padding:6px 14px; margin-bottom:20px; }
+  .g-hero h1{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(30px,5vw,50px); line-height:1.05; letter-spacing:-0.02em; color:#f5f3ee; margin:0 0 16px; }
+  .g-hero h1 span{ color:#eeb927; }
+  .g-hero p{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:300; font-size:clamp(16px,2vw,19px); line-height:1.6; color:#b8b4aa; max-width:600px; margin:0 auto; }
+  .g-toc{ max-width:760px; margin:clamp(24px,4vw,40px) auto 0; padding:0 clamp(20px,5vw,32px); display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+  .g-toc a{ display:flex; align-items:center; gap:12px; padding:11px 14px; border:1px solid rgba(255,255,255,0.07); border-radius:10px; background:#0c0c0c; text-decoration:none; color:#c8c4ba; font-family:'Manrope',sans-serif; font-weight:400; font-size:14.5px; line-height:1.3; transition:border-color .2s, color .2s, background .2s; }
+  .g-toc a:hover{ border-color:rgba(238,185,39,0.4); color:#f5f3ee; background:#111; }
+  .g-toc-n{ flex:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#eeb927; width:26px; }
+  .g-ch{ max-width:760px; margin:0 auto; padding:clamp(48px,7vw,86px) clamp(20px,5vw,32px) 0; scroll-margin-top:80px; }
+  .g-ch-head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .g-menu{ flex:none; margin-left:auto; align-self:center; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8a8781; text-decoration:none; border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px 12px; transition:color .2s, border-color .2s; }
+  .g-menu:hover{ color:#eeb927; border-color:rgba(238,185,39,0.45); }
+  .g-ch-num{ flex:none; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(26px,4vw,38px); line-height:1; color:rgba(238,185,39,0.9); letter-spacing:-0.02em; }
+  .g-ch-title{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(21px,3vw,30px); line-height:1.12; letter-spacing:-0.01em; color:#f5f3ee; margin:0; }
+  .g-h{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(17px,2.2vw,20px); line-height:1.3; color:#f5f3ee; margin:26px 0 4px; }
+  .g-h a{ color:#eeb927; }
+  .g-p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.75; color:#b8b4aa; margin:14px 0; }
+  .g-p strong{ color:#f5f3ee; font-weight:600; }
+  .g-p a, .g-cap a, .g-list a{ color:#eeb927; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(238,185,39,0.4); }
+  .g-free{ border-left:2px solid rgba(74,222,128,0.5); padding:10px 0 10px 16px; background:linear-gradient(90deg, rgba(74,222,128,0.06), transparent 90%); border-radius:0 8px 8px 0; }
+  .g-free strong{ color:#eafff0; }
+  .g-list{ margin:14px 0; padding:0; list-style:none; }
+  .g-list li{ position:relative; padding-left:22px; font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.6; color:#b8b4aa; margin-bottom:9px; }
+  .g-list li:before{ content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:#eeb927; }
+  .g-list li strong{ color:#f5f3ee; font-weight:600; }
+  .g-video{ position:relative; width:100%; padding-top:56.25%; margin:20px 0; border-radius:14px; overflow:hidden; background:#000; box-shadow:0 20px 50px rgba(0,0,0,0.5); }
+  .g-video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .g-video__shield{ position:absolute; inset:0; z-index:3; cursor:pointer; background:transparent; }
+  .g-fig{ margin:20px 0; text-align:center; }
+  .g-fig img{ width:100%; height:auto; display:block; margin:0 auto; border-radius:10px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 30px rgba(0,0,0,0.5); }
+  .g-cap{ font-family:'Manrope',sans-serif; font-style:italic; font-size:13.5px; color:#8a8781; text-align:center; margin:6px 0 4px; }
+  .g-cta-wrap{ text-align:center; margin:30px 0 6px; }
+  .g-cta{ display:inline-block; padding:16px 30px; background:#eeb927; color:#000; border-radius:2px; font-family:'IBM Plex Mono',monospace; font-size:13.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; line-height:1.4; }
+  .g-cta:hover{ filter:brightness(1.06); }
+  .g-tg{ max-width:760px; margin:clamp(40px,6vw,64px) auto 0; padding:0 clamp(20px,5vw,32px); }
+  .g-tg-in{ border:1px solid rgba(238,185,39,0.28); background:linear-gradient(180deg, rgba(238,185,39,0.06), transparent 70%),#0a0a0a; border-radius:16px; padding:clamp(22px,4vw,32px); text-align:center; }
+  .g-tg-in h3{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(18px,2.4vw,23px); color:#f5f3ee; margin:0 0 8px; }
+  .g-tg-in p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:16px; line-height:1.6; color:#b8b4aa; margin:0 0 18px; }
+  .g-end{ max-width:760px; margin:clamp(48px,7vw,86px) auto 0; padding:0 clamp(20px,5vw,32px) 90px; }
+  .g-divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); margin:0; }
+</style>
+
+  <span id="top"></span>
+  <header class="g-hero">
+    <div class="g-hero-bg"></div>
+    <span class="g-eyebrow">Guide offert · Vocal Chain Cheat Sheet</span>
+    <h1>12 réglages essentiels pour <span>transformer tes voix</span> comme un pro</h1>
+    <p>La chaîne de traitement vocal complète, étape par étape : les plugins que j'utilise, leurs alternatives gratuites, et les vidéos qui montrent exactement comment faire.</p>
+  </header>
+<nav class="g-toc" id="sommaire"><a href="#ch-1"><span class="g-toc-n">01</span><span>Introduction</span></a>
+<a href="#ch-2"><span class="g-toc-n">02</span><span>Engluer la voix dans l&#x27;instru</span></a>
+<a href="#ch-3"><span class="g-toc-n">03</span><span>Résonances : correction</span></a>
+<a href="#ch-4"><span class="g-toc-n">04</span><span>Première Coloration</span></a>
+<a href="#ch-5"><span class="g-toc-n">05</span><span>Deuxième Coloration</span></a>
+<a href="#ch-6"><span class="g-toc-n">06</span><span>EQ Correctif</span></a>
+<a href="#ch-7"><span class="g-toc-n">07</span><span>De-essing</span></a>
+<a href="#ch-8"><span class="g-toc-n">08</span><span>Autotune</span></a>
+<a href="#ch-9"><span class="g-toc-n">09</span><span>Première Compression</span></a>
+<a href="#ch-10"><span class="g-toc-n">10</span><span>EQ additif (troisième coloration)</span></a>
+<a href="#ch-11"><span class="g-toc-n">11</span><span>Upward Compression</span></a>
+<a href="#ch-12"><span class="g-toc-n">12</span><span>Saturation (ou quatrième coloration)</span></a>
+<a href="#ch-13"><span class="g-toc-n">13</span><span>Seconde Compression</span></a>
+<a href="#ch-14"><span class="g-toc-n">14</span><span>Bonus : Sonnox Inflator</span></a>
+<a href="#ch-15"><span class="g-toc-n">15</span><span>Bonus #2 : Compression Parallèle</span></a>
+<a href="#ch-16"><span class="g-toc-n">16</span><span>Conclusion</span></a>
+<a href="#ch-17"><span class="g-toc-n">17</span><span>QUICK WIN : Le Preset EQ Anti-Boue en 30 Secondes</span></a></nav>
+  <section class="g-ch" id="ch-1">
+    <div class="g-ch-head"><span class="g-ch-num">01</span><h2 class="g-ch-title">Introduction</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p"><strong>À VISIONNER :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/07303d44-64d1-4de0-a097-148da38b7b07/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Avant de continuer :</p>
+  </section>
+
+  <div class="g-tg">
+    <div class="g-tg-in">
+      <h3>Rejoins le groupe Telegram privé</h3>
+      <p>On y partage nos prods, nos problématiques de mix, et on s'entraide. Rien qu'avec ça, tu vas progresser 3x plus vite.</p>
+      <a class="g-cta" href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">Rejoindre le groupe →</a>
+    </div>
+  </div>
+
+  <section class="g-ch" id="ch-2">
+    <div class="g-ch-head"><span class="g-ch-num">02</span><h2 class="g-ch-title">Engluer la voix dans l&#x27;instru</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">On commence par l’un des problèmes de mix majeurs :</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/7e78384d-963d-4397-b95f-799bc922e5e3/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Si tu enregistres toi-même ta voix et que tu chopes des instru toutes faites sur internet, la vidéo juste en-dessous est faite pour toi.</p>
+<p class="g-p">On y voit comment réellement engluer ta voix dans l’instru pour enfin avoir un ensemble cohérent et une voix vraiment intégrée dans le mix global, notamment grâce à 4 réglages👇</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/O9SBq5ccRv0?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-3">
+    <div class="g-ch-head"><span class="g-ch-num">03</span><h2 class="g-ch-title">Résonances : correction</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Pour assurer propreté, définition et finesse</strong></h3>
+<p class="g-p">Imagine quelqu’un qui hurle dans une salle de bain carrelée.<br>Y’a <strong>UNE</strong> note qui explose, qui vibre, qui perce ton crâne.</p>
+<p class="g-p">C’est ça, une résonance.</p>
+<p class="g-p">Et sur une voix enregistrée chez toi ?<br>Il y en a <em>toujours</em> :</p>
+<ul class="g-list"><li>des “A” qui sonnent nasillards</li><li>des “S” qui sifflent mais pas comme les sibilances</li><li>des pics qui sautent dans le mix</li><li>des zones “dures”, “boxy”, “métalliques”, “criardes”</li></ul>
+<p class="g-p">Il ne faut surtout pas les laisser tranquilles. Car une fois que tu auras empiler 2 compresseurs, 2 EQ, 2 saturations et j’en passe… ces résonances seront amplifiées et désagréables.</p>
+<p class="g-p">J’en parle précisément dans cette vidéo :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/t5G-mRkH00E?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Voici le meilleur plugin à mon sens spécialisé dans le contrôle des résonances : <a href="https://www.pluginboutique.com/product/2-Effects/16-EQ/16305-Infinity-Horizon-?_gl=1*1e7f8wz*_up*MQ..*_gs*MQ..&amp;gclid=EAIaIQobChMIkszj4bWFlwMVaUZBAh1umwRVEAAYASAAEgKd6_D_BwE&amp;gbraid=0AAAAA_q3Xkz3mx5YNu__MZICYBfTiT28Q&amp;a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Infinity Horizon</a> de <em>Slate Digital</em>.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/dWIdeOjI0CQx4iO0K5rKOO3SMGa2U3pgZyZ0xoj9.webp" alt="" loading="lazy" style="max-width:540px"></figure>
+<p class="g-cap">Infinity Horizon - Slate Digital</p>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite :</strong> TDR Nova. Ce n’est pas un <em>Resonances Suppressor</em> à proprement parler. Mais c’est un EQ dynamique très polyvalent.</p>
+<p class="g-p">Tu peux donc cibler les résonances problématiques et les atténuer de manière dynamique.</p>
+<p class="g-p"><a href="https://www.pluginboutique.com/product/2-Effects/71-Dynamics-Processor/8320-RESO?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Reso</a> de <em>Mastering The Mix</em> propose également une version d’essai gratuite.</p>
+<p class="g-p">Rappelle-toi, une voix sans résonances :</p>
+<ul class="g-list"><li>se compresse mieux</li><li>se mélange mieux</li><li>demande moins d’effets</li><li>traverse le mix sans t’agresser</li><li>sonne pro même avec un micro moyen</li><li>sonne fine (et puissante)</li></ul>
+  </section>
+  <section class="g-ch" id="ch-4">
+    <div class="g-ch-head"><span class="g-ch-num">04</span><h2 class="g-ch-title">Première Coloration</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Pour colorer et réchauffer dès l’entrée</strong></h3>
+<p class="g-p"><strong>IMPORTANT :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/afc104e4-9f53-4b60-bcd1-120c0816185b/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Ici on veut donner du caractère à la voix, simplement et rapidement, en utilisant une émulation de pré-ampli analogique.</p>
+<p class="g-p"><strong>Mon plugin : Slate Digital FG-73</strong></p>
+<p class="g-p">Émulation du préamp Neve 1073. Il ajoute une <strong>chaleur analogique et du grain musical</strong> à ta voix, même sans EQ ni compression. Idéal pour <strong>éviter le son plat et numérique</strong>.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/SOYrXtdoT8unbELg1IM2XMVcEzE4VCLYlMnYOd4U.png" alt="" loading="lazy" style="max-width:270px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Analog Obsession BritPre</strong> (Win/Mac)</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/rFewR_vsw3w?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-5">
+    <div class="g-ch-head"><span class="g-ch-num">05</span><h2 class="g-ch-title">Deuxième Coloration</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Virtual Channel : pour simuler une vraie console analogique</strong></h3>
+<p class="g-p">Ici, on suit le chemin de base du son. Quand tu enregistres, le son est capté par un micro… jusque là, on est d’accord.</p>
+<p class="g-p">Ensuite, le signal capté entre dans un pré-ampli (ce dont a vu avec la première coloration), dans la carte son puis dans la console de mixage.</p>
+<p class="g-p">Et c’est exactement ça que l’on veut recréer : la couleur des consoles de mixage analogique.</p>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/product/2-Effects/21-Channel-Strip/15815-Virtual-Console-Collection?_gl=1*1t8zyf0*_up*MQ..&amp;gclid=EAIaIQobChMIkszj4bWFlwMVaUZBAh1umwRVEAAYASAAEgKd6_D_BwE&amp;gbraid=0AAAAA_q3Xkz3mx5YNu__MZICYBfTiT28Q&amp;a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Slate Digital Virtual Channel</a></p>
+<p class="g-p">Je parle justement de ce plugin sur l’un de mes post TikTok, <a href="https://www.tiktok.com/@sacha_musiccharts/photo/7543659689993702678?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7578489215790532118" target="_blank" rel="noopener">juste ici</a>.</p>
+<p class="g-p">Simule des <strong>comportements subtils de consoles mythiques</strong>. Ajoute de la densité, du “glue”, et un effet psychoacoustique qui “place” la voix dans le mix.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/mH1mnfmnjNSow5L4wSWfVKnicqoastDNwNeDwh5v.png" alt="" loading="lazy" style="max-width:360px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Airwindows Channel</strong></p>
+  </section>
+  <section class="g-ch" id="ch-6">
+    <div class="g-ch-head"><span class="g-ch-num">06</span><h2 class="g-ch-title">EQ Correctif</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>EQ correctif : pour retirer les défauts de la prise</strong></h3>
+<p class="g-p">Extrêmement important quand il s’agit de traiter (et d’EQ) une voix : on corrige, c’est-à-dire qu’on enlève, avant de booster et de sublimer. TOUJOURS</p>
+<p class="g-p">J’ai justement fait une vidéo à ce sujet et je t’y montre les 5 zones d’EQ à corriger. La voici :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/ixQFa2a-I8E?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">À regarder juste après la première vidéo :</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/0cbc96ba-7ca0-458a-8a8d-8226026985c3/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/products/14125?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-Q4</a></p>
+<p class="g-p">Ultra visuel et précis. Sert à nettoyer le “mud”, couper les sub inutiles et aérer la voix avant tout traitement.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/MrRk8eIf5xrzzRbBib8GKqeyfL6oGjFDbvcplJWm.png" alt="" loading="lazy" style="max-width:540px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : TDR Nova</strong> (dynamique + EQ paramétrique !) <strong>MeldaProduction MEqualizer</strong></p>
+  </section>
+  <section class="g-ch" id="ch-7">
+    <div class="g-ch-head"><span class="g-ch-num">07</span><h2 class="g-ch-title">De-essing</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>De-esser : pour calmer les “S” agressifs sans abîmer la voix</strong></h3>
+<p class="g-p">Si tu veux avoir un maximum de contrôle, contrôle les hautes fréquences avec ton EQ correctif, de manière dynamique, dans un premier temps. Puis ensuite, utilise un de-esser pour encore plus de contrôle et de transparence.</p>
+<p class="g-p"><strong>Mon plugin : Slate Digital FG-DS</strong></p>
+<p class="g-p">Simple, clean, efficace. Il <strong>attaque juste les sibilances</strong> et respecte le reste du spectre vocal.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/FpRshaV9KI2G4obgdJ6vrRwP61UamXLuXiG9xCAF.webp" alt="" loading="lazy" style="max-width:270px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : T-De-Esser by Techivation / Airwindows Dress</strong></p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/UDX5LkGYJto?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-8">
+    <div class="g-ch-head"><span class="g-ch-num">08</span><h2 class="g-ch-title">Autotune</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Autotune : pour corriger la justesse ou créer un effet artistique</strong></h3>
+<p class="g-p">Ça, tu connais :</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/87b0a9c3-74b8-4857-8155-35ea83c98841/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/product/2-Effects/54-Vocal-Processing/15799-MetaTune?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Slate Digital MetaTune</a></p>
+<p class="g-p">Rapide, musical, et avec un <strong>look moderne</strong>. Tu peux choisir entre un effet <strong>subtil et transparent</strong>, ou un <strong>style très stylisé à la Travis Scott.</strong></p>
+<figure class="g-fig"><img src="/assets/guide-vocal/ubwxCgFHPGPDT2UdgHZVt9yAi1oOncQHn3U3HsKb.webp" alt="" loading="lazy" style="max-width:430px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : GVST GSnap / MAutoPitch by MeldaProduction</strong></p>
+  </section>
+  <section class="g-ch" id="ch-9">
+    <div class="g-ch-head"><span class="g-ch-num">09</span><h2 class="g-ch-title">Première Compression</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Compresseur 1 : pour contrôler les pics de volume</strong></h3>
+<p class="g-p"><strong>EXTRÊMEMENT IMPORTANT :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/5a90ed10-a8c8-4872-b3f8-56adc1ae8d0d/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Pour savoir quels compresseurs utiliser et quels réglages mettre, check cette vidéo ultra complète :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/HuzcyEJ9zYE?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/product/2-Effects/9-Limiter/10153-1176-Classic-Limiter-Collection?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">UAD 1176LN</a></p>
+<p class="g-p">Ultra rapide, parfait pour <strong>écraser les transitoires trop violents sans sacrifier la dynamique</strong>. À placer en amont pour “tailler” la voix.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/KMaid5IiFuQ2bvoxwqCdBLdSTnyyWV5I77yaql4w.png" alt="" loading="lazy" style="max-width:560px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Analog Obsession FETish</strong></p>
+  </section>
+  <section class="g-ch" id="ch-10">
+    <div class="g-ch-head"><span class="g-ch-num">10</span><h2 class="g-ch-title">EQ additif (troisième coloration)</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>EQ additif : pour embellir et colorer la voix</strong></h3>
+<p class="g-p">Seulement APRÈS avoir corriger les fréquences problématiques, tu peux booster les fréquences pour colorer et sublimer ta voix.</p>
+<p class="g-p">Voici une vidéo dans laquelle je t’explique exactement quelles zones de fréquences booster sur ta voix (on va droit au but, sans prise de tête) :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/kxU-l5Its3A?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/product/81-Bundles/39-Effects-Bundles/15800-Mix-Bundle-One?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Slate Digital FG-N (Neve style)</a></p>
+<p class="g-p">Ajoute du <strong>caractère, de la brillance, de la présence</strong>. Tu ne retires rien ici : tu <strong>sublimes</strong>. C’est ton pinceau d’artiste.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/7UG5pkvNsdhVnWMIEwGdmkusZsC1h8e92va3lFmK.png" alt="" loading="lazy" style="max-width:270px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Analog Obsession BritChannel et Ignite Amps PTEq-X</strong></p>
+  </section>
+  <section class="g-ch" id="ch-11">
+    <div class="g-ch-head"><span class="g-ch-num">11</span><h2 class="g-ch-title">Upward Compression</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Upward Compression : pour faire ressortir les détails faibles</strong></h3>
+<p class="g-p">Là, on arrive sur quelque chose de plus technique, mais qui peut vraiment faire une différence. L’<em>upward</em> compression, c’est l’inverse de la compression “normale” : on va chercher les sons les plus bas en niveau, puis on les remonte.</p>
+<p class="g-p">Résultat : plus de détails, de finesse et de définition.</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/adc65603-5e26-4929-9eb7-64ea14381fca/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/products/919?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-MB</a></p>
+<p class="g-p">Multibande, ultra contrôlable. Permet d’<strong>amplifier les zones faibles</strong> (genre les fins de phrases) sans booster toute la voix.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/SK6rDrOHxwiYKgaALHkqzFcHYwNL3cXtSV5EhnVy.webp" alt="" loading="lazy" style="max-width:540px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : TDR Nova</strong> (encore lui ! il fait aussi de l’upward en mode dynamique) et <strong>OTT by Xfer</strong> (attention, très agressif)</p>
+  </section>
+  <section class="g-ch" id="ch-12">
+    <div class="g-ch-head"><span class="g-ch-num">12</span><h2 class="g-ch-title">Saturation (ou quatrième coloration)</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Saturation : pour donner de la vie et de la densité</strong></h3>
+<p class="g-p">Ici, on veut donner un max de caractère à la voix. Selon le type de saturation que tu choisis, ce sera plus ou moins doux, plus ou moins agressif.</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/7e24d492-9432-43fb-8ce0-87c1b6aabc84/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Idéal pour donner plus d’intérêt au son.</p>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/products/6423?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Saturn</a></p>
+<p class="g-p">Polyvalent, musical. Idéal pour <strong>faire vibrer la voix sans l’écraser</strong>, et rajouter un peu de &quot;grain radio&quot;.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/2wpskHV6UtfcmCZ7IbTcvRCGWghU7eJUjJ5VkQHi.png" alt="" loading="lazy" style="max-width:540px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Softube Saturation Knob et Airwindows TapeFat / ToTape</strong></p>
+  </section>
+  <section class="g-ch" id="ch-13">
+    <div class="g-ch-head"><span class="g-ch-num">13</span><h2 class="g-ch-title">Seconde Compression</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Compresseur 2 : pour lisser la dynamique globalement</strong></h3>
+<p class="g-p">EXTRÊMEMENT IMPORTANT. Pour la compression de ta voix, fais une compression à deux étages : tu contrôles les pics avec un premier compresseur, puis tu lisses la dynamique avec un second.</p>
+<p class="g-p">Pour savoir quels réglages exacts mettre, check cette vidéo ultra complète :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/HuzcyEJ9zYE?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/product/2-Effects/8-Compressor/10154-Teletronix-LA-2A-Leveler-Collection?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">UAD LA-2A</a></p>
+<p class="g-p">Un compresseur lent et smooth, qui <strong>“glue” la voix naturellement</strong>. Parfait en fin de chaîne, après toutes les étapes fines.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/rnVK52OH8iQbGkLZoSPFDsvJRAuCmo0YultvEraP.png" alt="" loading="lazy" style="max-width:560px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : Analog Obsession LALA</strong> (free LA-2A)</p>
+  </section>
+  <section class="g-ch" id="ch-14">
+    <div class="g-ch-head"><span class="g-ch-num">14</span><h2 class="g-ch-title">Bonus : Sonnox Inflator</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Sonnox Inflator (optionnel) : pour ajouter de la densité sans crête</strong></h3>
+<p class="g-p">Celui-ci est optionnel. Mais terriblement efficace dans certains cas. Ce plugin mêle saturation, upward compression et EQ… entre autre.</p>
+<p class="g-p">J’y ai consacré un poste instagram, <a href="https://www.instagram.com/sacha_musiccharts/p/DJcMf4So47T/" target="_blank" rel="noopener">juste ici</a>.</p>
+<p class="g-p"><strong>Mon plugin :</strong> <a href="https://www.pluginboutique.com/products/492?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Sonnox Oxford Inflator</a></p>
+<p class="g-p">Ajoute du “loudness perçu” sans toucher au niveau réel. Idéal si la voix est “fine” ou manque de corps dans le mix final.</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/1ZwFXZmLSigLLYkJ3Lr1qLUYeYxwX71VKX9wZgKb.webp" alt="" loading="lazy" style="max-width:400px"></figure>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite :</strong> Pas d’alternative exacte</p>
+  </section>
+  <section class="g-ch" id="ch-15">
+    <div class="g-ch-head"><span class="g-ch-num">15</span><h2 class="g-ch-title">Bonus #2 : Compression Parallèle</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h3 class="g-h"><strong>Compression parallèle (optionnelle mais puissante)</strong></h3>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/sCPminNDiws?modestbranding=1&amp;rel=0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Mon plugin : UAD 1176LN en parallèle</strong></p>
+<p class="g-p">Technique où tu <strong>compresses une copie très fort</strong>, puis tu la mélanges avec la voix d’origine. Résultat : plus de <strong>punch, d’énergie et de présence</strong>, sans écraser la dynamique.</p>
+<p class="g-p">Ce n’est pas obligatoire. Mais si ta voix manque toujours de punch ou de présence et consistance malgré tes traitements précédents, cette option est carrément intéressante.</p>
+<p class="g-p g-free"><strong>🎁 Alternative gratuite : FETish</strong> + routing parallèle dans ton DAW ou n’importe quel compresseur avec un dry/wet intégré</p>
+  </section>
+  <section class="g-ch" id="ch-16">
+    <div class="g-ch-head"><span class="g-ch-num">16</span><h2 class="g-ch-title">Conclusion</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h">Ce que tu dois retenir (NE PAS SKIP)</h2>
+<p class="g-p">Vidéo 1 :</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/a2769435-6a8c-4b7e-b138-1cc24561884d/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Vidéo 2 :</p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/2d808ec9-d96a-4786-98a9-d8973fa0c556/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mix-essentials/" target="_blank" rel="noopener">👉 Je souhaite accéder à Mix Essentials et réaliser les mix que je mérite 👈</a></div>
+  </section>
+  <section class="g-ch" id="ch-17">
+    <div class="g-ch-head"><span class="g-ch-num">17</span><h2 class="g-ch-title">QUICK WIN : Le Preset EQ Anti-Boue en 30 Secondes</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <div class="g-video"><iframe src="https://app.videas.fr/embed/media/24a58f5a-1648-4636-91f0-abdf8ac68948/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mix-essentials/" target="_blank" rel="noopener">👉 Découvre le programme MIX Essentials en cliquant ici 👈</a></div>
+<h2 class="g-h"><strong>Ton problème</strong></h2>
+<p class="g-p">Ta voix sonne &quot;étouffée&quot; ou &quot;boueuse&quot; dans le mix, comme si elle était derrière un rideau. Tu as beau booster les aigus, mais rien n’y fait.</p>
+<p class="g-p">Ta voix sonne toujours étouffé, et le boost des aigus la rend agressive.</p>
+<p class="g-p">Alors ouvre ton DAW, mets-toi sur ta piste de voix et suis ces petites étapes très rapides.</p>
+<h2 class="g-h"><strong>La solution express</strong></h2>
+<p class="g-p"><strong>Étape 1 :</strong> Ouvre un EQ sur ta piste vocale</p>
+<p class="g-p"><strong>Étape 2 :</strong> Coupe les graves avec un coupe-bas juste sous le corps de la voix (en général autour de 110Hz)</p>
+<p class="g-p">→ Imagine que tu enlèves la poussière sous le tapis : ça ne se voit pas, mais c&#x27;est plus propre !</p>
+<p class="g-p"><strong>Étape 3 :</strong> place une bell à 300Hz et creuse à 2dB. Si ton EQ te le permet, ajoute une réduction dynamique de 1 à 2 dB supplémentaires.</p>
+<p class="g-p"><strong>Étape 4 :</strong> Écoute la différence (active/désactive l&#x27;EQ)</p>
+<h2 class="g-h"><strong>Pourquoi ça marche</strong></h2>
+<p class="g-p">Les fréquences sous 110 Hz ne servent généralement à rien pour une voix. Elles encombrent juste ton mix.</p>
+<p class="g-p">Et la zone autour des 300Hz, c&#x27;est LA zone responsable du manque de clarté.</p>
+<p class="g-p"><strong>Résultat :</strong> Une voix claire qui sort du mix, sans effort.</p>
+<p class="g-p">Bravo, tu viens de comprendre une chose essentielle : un mix clean, c’est avant tout du nettoyage, pas des boost. Enlever &gt; ajouter.</p>
+<p class="g-p">Et là, tu es en avance sur 80% des producteurs et ingénieurs du son indépendants.</p>
+<p class="g-p">Réponds-moi avec ton résultat (même un simple emoji 👍) dans le <a href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">groupe Telegram</a> !</p>
+<figure class="g-fig"><img src="/assets/guide-vocal/uZ38yX0IlMqrzJGJDkGnFdvjzYs0oyixSqj3MecX.png" alt="" loading="lazy" style="max-width:440px"></figure>
+  </section>
+
+</main>
+<footer class="smc-footer">
+  <span class="smc-footer-brand">SACHA <b>MUSIC CHARTS</b></span>
+  <div style="display:flex;gap:24px;">
+    <a class="footer-link" href="https://www.youtube.com/@SachaMusicCharts" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;text-decoration:none;">YouTube ↗</a>
+  </div>
+  <span class="smc-footer-copy">© — LGD Audio</span>
+</footer>
+<script src="/app.js"></script>
+<script>
+/* Les iframes vidéo capturent la molette et bloquent le scroll de la page.
+   On pose un calque transparent : il laisse défiler la page, et au clic il
+   s'efface pour rendre la vidéo interactive. Sur ordinateur, il revient
+   quand la souris quitte la vidéo (le scroll reste toujours possible). */
+(function(){
+  document.querySelectorAll('.g-video').forEach(function(w){
+    var sh = document.createElement('div');
+    sh.className = 'g-video__shield';
+    w.appendChild(sh);
+    sh.addEventListener('click', function(){ sh.style.display = 'none'; });
+    w.addEventListener('mouseleave', function(){ sh.style.display = ''; });
+  });
+})();
+/* Force l'ouverture des liens externes dans un nouvel onglet, même dans les
+   navigateurs intégrés qui ignorent target="_blank". */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[target="_blank"]');
+    if(!a) return;
+    if(/^https?:/i.test(a.getAttribute('href') || '')){
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener');
+    }
+  });
+})();
+</script>
+</body>
+</html>
