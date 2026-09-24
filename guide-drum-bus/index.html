@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drum Bus Cheat Sheet — 11 réglages pour un drum bus qui claque</title>
+<meta name="description" content="Le guide complet du mixage du bus batterie : caractère & saturation, dynamique, headroom. 11 réglages, plugins recommandés et alternatives gratuites, pour un drum bus qui claque.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Sacha Music Charts — LGD Audio">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='26' cy='50' r='6' fill='%23eeb927'/%3E%3Ctext x='40' y='46' font-family='Arial' font-size='15' font-weight='700' fill='%23f5f3ee'%3ESMC%3C/text%3E%3Ctext x='40' y='62' font-family='Arial' font-size='7' letter-spacing='1' fill='%23eeb927'%3EMUSIC CHARTS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<nav class="smc-nav">
+  <a href="/" class="smc-logo" aria-label="Accueil — Sacha Music Charts">
+    <span class="smc-dot"></span><span class="smc-logo-text">SACHA <b>MUSIC CHARTS</b></span>
+  </a>
+  <div id="nav-links" class="smc-nav-links">
+    <a href="/" class="smc-nav-link">Accueil</a>
+    <a href="/videos/" class="smc-nav-link">Vidéos</a>
+    <a href="/ressources/" class="smc-nav-link">Ressources</a>
+    <a href="/formations/" class="smc-nav-link">Formations</a>
+    <a href="/mastering/" class="smc-nav-link">Mastering</a>
+    <a href="/revtime/" class="smc-nav-link">RevTime</a>
+    <a href="/a-propos/" class="smc-nav-link">À propos</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<main class="smc-main">
+<style>
+  .g-wrap{ max-width:760px; margin:0 auto; padding:0 clamp(20px,5vw,32px); }
+  .g-hero{ text-align:center; padding:clamp(40px,7vw,80px) clamp(20px,5vw,32px) clamp(24px,4vw,36px); position:relative; overflow:hidden; }
+  .g-hero-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(60% 60% at 50% 0%, rgba(238,185,39,0.14), transparent 70%); }
+  .g-eyebrow{ position:relative; z-index:1; display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:#eeb927; border:1px solid rgba(238,185,39,0.35); border-radius:4px; padding:6px 14px; margin-bottom:20px; }
+  .g-hero h1{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(30px,5vw,50px); line-height:1.05; letter-spacing:-0.02em; color:#f5f3ee; margin:0 0 16px; }
+  .g-hero h1 span{ color:#eeb927; }
+  .g-hero p{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:300; font-size:clamp(16px,2vw,19px); line-height:1.6; color:#b8b4aa; max-width:600px; margin:0 auto; }
+  .g-toc{ max-width:760px; margin:clamp(24px,4vw,40px) auto 0; padding:0 clamp(20px,5vw,32px); display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+  .g-toc a{ display:flex; align-items:center; gap:12px; padding:11px 14px; border:1px solid rgba(255,255,255,0.07); border-radius:10px; background:#0c0c0c; text-decoration:none; color:#c8c4ba; font-family:'Manrope',sans-serif; font-weight:400; font-size:14.5px; line-height:1.3; transition:border-color .2s, color .2s, background .2s; }
+  .g-toc a:hover{ border-color:rgba(238,185,39,0.4); color:#f5f3ee; background:#111; }
+  .g-toc-n{ flex:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#eeb927; width:26px; }
+  .g-ch{ max-width:760px; margin:0 auto; padding:clamp(48px,7vw,86px) clamp(20px,5vw,32px) 0; scroll-margin-top:80px; }
+  .g-ch-head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .g-menu{ flex:none; margin-left:auto; align-self:center; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8a8781; text-decoration:none; border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px 12px; transition:color .2s, border-color .2s; }
+  .g-menu:hover{ color:#eeb927; border-color:rgba(238,185,39,0.45); }
+  .g-ch-num{ flex:none; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(26px,4vw,38px); line-height:1; color:rgba(238,185,39,0.9); letter-spacing:-0.02em; }
+  .g-ch-title{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(21px,3vw,30px); line-height:1.12; letter-spacing:-0.01em; color:#f5f3ee; margin:0; }
+  .g-h{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(17px,2.2vw,20px); line-height:1.3; color:#f5f3ee; margin:26px 0 4px; }
+  .g-h a{ color:#eeb927; }
+  .g-p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.75; color:#b8b4aa; margin:14px 0; }
+  .g-p strong{ color:#f5f3ee; font-weight:600; }
+  .g-p a, .g-cap a, .g-list a{ color:#eeb927; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(238,185,39,0.4); }
+  .g-free{ border-left:2px solid rgba(74,222,128,0.5); padding:10px 0 10px 16px; background:linear-gradient(90deg, rgba(74,222,128,0.06), transparent 90%); border-radius:0 8px 8px 0; }
+  .g-free strong{ color:#eafff0; }
+  .g-list{ margin:14px 0; padding:0; list-style:none; }
+  .g-list li{ position:relative; padding-left:22px; font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.6; color:#b8b4aa; margin-bottom:9px; }
+  .g-list li:before{ content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:#eeb927; }
+  .g-list li strong{ color:#f5f3ee; font-weight:600; }
+  .g-video{ position:relative; width:100%; padding-top:56.25%; margin:20px 0; border-radius:14px; overflow:hidden; background:#000; box-shadow:0 20px 50px rgba(0,0,0,0.5); }
+  .g-video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .g-video__scroll{ position:absolute; inset:0; z-index:3; cursor:pointer; background:transparent; border:0; padding:0; margin:0; -webkit-appearance:none; appearance:none; }
+  .g-video.is-live .g-video__scroll{ pointer-events:none; }
+  .g-fig{ margin:20px 0; text-align:center; }
+  .g-fig img{ width:100%; height:auto; display:block; margin:0 auto; border-radius:10px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 30px rgba(0,0,0,0.5); }
+  .g-cap{ font-family:'Manrope',sans-serif; font-style:italic; font-size:13.5px; color:#8a8781; text-align:center; margin:6px 0 4px; }
+  .g-cta-wrap{ text-align:center; margin:30px 0 6px; }
+  .g-cta{ display:inline-block; padding:16px 30px; background:#eeb927; color:#000; border-radius:2px; font-family:'IBM Plex Mono',monospace; font-size:13.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; line-height:1.4; }
+  .g-cta:hover{ filter:brightness(1.06); }
+  .g-tg{ max-width:760px; margin:clamp(40px,6vw,64px) auto 0; padding:0 clamp(20px,5vw,32px); }
+  .g-tg-in{ border:1px solid rgba(238,185,39,0.28); background:linear-gradient(180deg, rgba(238,185,39,0.06), transparent 70%),#0a0a0a; border-radius:16px; padding:clamp(22px,4vw,32px); text-align:center; }
+  .g-tg-in h3{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(18px,2.4vw,23px); color:#f5f3ee; margin:0 0 8px; }
+  .g-tg-in p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:16px; line-height:1.6; color:#b8b4aa; margin:0 0 18px; }
+</style>
+
+  <span id="top"></span>
+  <header class="g-hero">
+    <div class="g-hero-bg"></div>
+    <span class="g-eyebrow">Guide offert · Drum Bus Cheat Sheet</span>
+    <h1>11 réglages essentiels pour <span>transformer ton drum bus</span> en machine à punch</h1>
+    <p>Le mixage du bus batterie, étape par étape : caractère & saturation, dynamique, headroom. Les plugins que j'utilise, leurs alternatives gratuites, et les vidéos qui montrent exactement comment faire.</p>
+  </header>
+<nav class="g-toc" id="sommaire"><a href="#ch-1"><span class="g-toc-n">01</span><span>Avant de commencer</span></a>
+<a href="#ch-2"><span class="g-toc-n">02</span><span>Introduction : Pourquoi mixer le bus batterie ?</span></a>
+<a href="#ch-3"><span class="g-toc-n">03</span><span>Caractère &amp; saturation (le « grain » qui rend pro)</span></a>
+<a href="#ch-4"><span class="g-toc-n">04</span><span>Gestion de la dynamique</span></a>
+<a href="#ch-5"><span class="g-toc-n">05</span><span>Gestion de l’espace et du headroom</span></a>
+<a href="#ch-6"><span class="g-toc-n">06</span><span>Conclusion</span></a>
+<a href="#ch-7"><span class="g-toc-n">07</span><span>QUICK WIN : La Saturation Sweet Spot</span></a></nav>
+  <section class="g-ch" id="ch-1">
+    <div class="g-ch-head"><span class="g-ch-num">01</span><h2 class="g-ch-title">Avant de commencer</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p"><strong>Vidéo à ne surtout pas skip :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/e7461262-aad5-45a4-a23d-2f9f4be490d7/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Avant de continuer :</p>
+  </section>
+
+  <div class="g-tg">
+    <div class="g-tg-in">
+      <h3>Rejoins le groupe Telegram privé</h3>
+      <p>On y partage nos prods, nos problématiques de mix, et on s'entraide. Rien qu'avec ça, tu vas progresser 3x plus vite.</p>
+      <a class="g-cta" href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">Rejoindre le groupe →</a>
+    </div>
+  </div>
+
+  <section class="g-ch" id="ch-2">
+    <div class="g-ch-head"><span class="g-ch-num">02</span><h2 class="g-ch-title">Introduction : Pourquoi mixer le bus batterie ?</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Aka Drum Bus.</p>
+<p class="g-p">Quand tu mixes ta batterie piste par piste (kick, snare, hi-hats, etc.), tu peux avoir l’impression que chaque élément sonne bien seul.</p>
+<p class="g-p">Mais dès que tu écoutes le kit complet, ça part en vrille :</p>
+<ul class="g-list"><li>Ça sonne parfois brouillon.</li><li>Les éléments manquent de cohésion.</li><li>Le groove global disparaît un peu.</li></ul>
+<p class="g-p"><strong>Pourquoi ?</strong> Parce qu’une batterie, c’est un ensemble. Tu dois la traiter comme une <strong>équipe qui doit jouer ensemble</strong>, pas comme des joueurs séparés.</p>
+<p class="g-p">C’est là qu’intervient <strong>le bus batterie</strong> : tu envoies toutes tes pistes batterie vers une seule piste “groupe” (le bus), et tu appliques des traitements globaux. Ça permet :</p>
+<ul class="g-list"><li>De <strong>coller les son ensemble</strong> pour que ça groove.</li><li>D’avoir un <strong>caractère unique et cohérent</strong>.</li><li>De <strong>gagner du temps</strong> et de <strong>contrôler la dynamique globale</strong> en un seul endroit.</li></ul>
+<p class="g-p">En plus, dans les productions modernes, la batterie est l’élément central. Alors autant tout faire pour qu’elle soit le plus quali possible.</p>
+<p class="g-p">Globalement, sur le bus batterie, on va chercher à :</p>
+<ul class="g-list"><li>coller les son ensemble</li><li>donner du caractère et “grossir le son”</li><li>éventuellement équaliser</li><li>gérer le punch et la dynamique</li></ul>
+<h3 class="g-h"><strong>Chaîne type et placement</strong></h3>
+<p class="g-p">Ordre simple, safe et efficace (du plus “général” vers le plus “chirurgical”) :</p>
+<ul class="g-list"><li><strong>Préampli/Console</strong></li><li><strong>De-esser bus léger</strong> (si besoin)</li><li><strong>Saturation principale</strong></li><li><strong>Compression de bus</strong></li><li><strong>EQ douce</strong> (si nécessaire)</li><li><strong>Clipping doux</strong> ou limiteur</li></ul>
+<p class="g-p">Ici, je vais te présenter plusieurs techniques, selon plusieurs aspects du son. Tu n’est PAS obligé de tout mettre. Ou de respecter à la lettre tout ce que je décris. Mais c’est un excellent point de départ pour avoir un mix pro.</p>
+<p class="g-p">Adapte TOUJOURS à ton contexte de mix.</p>
+<p class="g-p">Let’s go.</p>
+  </section>
+  <section class="g-ch" id="ch-3">
+    <div class="g-ch-head"><span class="g-ch-num">03</span><h2 class="g-ch-title">Caractère &amp; saturation (le « grain » qui rend pro)</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p"><strong>Pourquoi ajouter du caractère au bus batterie ?</strong></p>
+<p class="g-p">Imagine ta batterie comme une photo en noir et blanc : elle est claire, nette, mais manque de vie.</p>
+<p class="g-p">Ajouter de la <strong>saturation et des couleurs harmoniques</strong>, c’est comme <strong>mettre des couleurs vibrantes sur cette photo</strong>. Ça ne change pas le motif, mais ça le rend plus riche, plus plaisant à l’oreille.</p>
+<p class="g-p">Et ça permettra en plus de ça, de :</p>
+<ul class="g-list"><li>faire ressortir la batterie dans le mix</li><li>la faire sonner (bien) peu importe le système d’écoute</li><li>engluer les éléments de la batterie entre eux</li></ul>
+<p class="g-p">Comment ajouter du caractère ? Plusieurs options s’offrent à toi.</p>
+<h3 class="g-h"><strong>La saturation</strong></h3>
+<p class="g-p">La saturation ajoute de <strong>légères distorsions harmoniques</strong> qui rendent le son plus “plein”. Pas de panique, ce n’est pas la distorsion violente des guitares métal, mais une <strong>distorsion douce et contrôlée</strong>.</p>
+<p class="g-p"><strong>Comment faire :</strong></p>
+<ul class="g-list"><li>Place un plugin de saturation sur ton bus batterie, <strong>en début de chaîne</strong>.</li><li>Commence avec un réglage très subtil</li><li>Monte le gain jusqu’à ce que tu sentes que le son devient plus riche et épais.</li><li>Compare ON/OFF. Si tu sens que le kit “vit mieux”, tu as réussi.</li></ul>
+<p class="g-p"><strong>Plugins conseillés :</strong></p>
+<ul class="g-list"><li><a href="https://www.pluginboutique.com/products/6423?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Saturn 2</a> (flexible, propre)</li><li><a href="https://www.pluginboutique.com/product/2-Effects/44-Saturation/1801-Decapitator?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Soundtoys Decapitator</a> (plus coloré, analog vibe)</li><li>Black Box HG-2</li><li>Alternative gratuite : Softube Saturation Knob</li></ul>
+<h3 class="g-h"><strong>L’émulation de console analogique</strong></h3>
+<p class="g-p">Aujourd’hui, on peut <strong>imiter la coloration</strong> des anciennes consoles analogiques de studio avec des plugins d’émulation.</p>
+<p class="g-p"><strong>Pourquoi c’est cool ?</strong> Parce que ça donne :</p>
+<ul class="g-list"><li>Plus de densité dans les médiums.</li><li>Une sensation de “glue naturelle”.</li><li>Une ouverture stéréo très agréable.</li></ul>
+<p class="g-p"><strong>Exemples :</strong></p>
+<ul class="g-list"><li>Slate Digital VCC (Virtual Console Collection), ma préférée</li><li><a href="https://www.pluginboutique.com/products/13800?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Waves NLS</a></li></ul>
+<h3 class="g-h"><strong>L’émulation de bande (tape)</strong></h3>
+<p class="g-p">C’est parfait si :</p>
+<ul class="g-list"><li>Tes cymbales sont agressives.</li><li>Ta batterie manque de chaleur.</li><li>Tu veux un son “vintage chaleureux”.</li></ul>
+<p class="g-p"><strong>Réglages types :</strong></p>
+<ul class="g-list"><li>Vitesse de bande : 15 IPS (plus de graves et de rondeur).</li><li>Input : monte doucement jusqu’à sentir la compression et la saturation douce.</li><li>Bias : reste neutre sauf si tu veux un effet créatif.</li></ul>
+<p class="g-p"><strong>Plugins conseillés :</strong></p>
+<ul class="g-list"><li><a href="https://www.pluginboutique.com/products/3416?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Softube Tape</a></li><li><a href="https://www.pluginboutique.com/product/2-Effects/96-Tape-Emulation/13679-Kramer-Master-Tape?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Waves Kramer Master Tape</a></li><li><a href="https://www.pluginboutique.com/products/10185?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">UAD Studer A800</a></li><li>Slate Digital Virtual Tape Machine (ma préférée)</li></ul>
+<p class="g-p">Voici une vidéo (de base destinée au mixage voix), mais qui va te permettre de comprendre bien mieux les choses à propos de la saturation :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/rFewR_vsw3w?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-4">
+    <div class="g-ch-head"><span class="g-ch-num">04</span><h2 class="g-ch-title">Gestion de la dynamique</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Une batterie trop dynamique = ton kick et ta snare sautent de manière irrégulière.<br>Une batterie trop compressée = elle sonne plate et sans groove.</p>
+<p class="g-p">La clé ? <strong>Contrôler la dynamique avec finesse</strong>.</p>
+<h3 class="g-h"><strong>La glue compression</strong></h3>
+<p class="g-p">La “glue compression” sert à <strong>coller tous les éléments ensemble</strong> pour qu’ils respirent comme un seul instrument.</p>
+<p class="g-p"><strong>Réglage type :</strong></p>
+<ul class="g-list"><li>Ratio : 2:1 ou 4:1</li><li>Attack : lente (20-30 ms)</li><li>Release : rapide ou auto</li><li>Gain reduction : 1 à 4 dB</li><li>High-Pass filter activé (pour garder la profondeur, le punch et la rondeur du bas du spectre)</li></ul>
+<p class="g-p"><strong>Plugins conseillés :</strong></p>
+<ul class="g-list"><li><a href="https://www.pluginboutique.com/products/8651?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">SSL Bus Compressor 2</a> (classique des pros)</li><li><a href="https://www.pluginboutique.com/product/2-Effects/8-Compressor/10155-API-2500-Bus-Compressor?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">UAD API 2500</a></li></ul>
+<p class="g-p"><strong>Alternatives gratuites :</strong></p>
+<ul class="g-list"><li>TDR Kotelnikov</li><li>Analog Obsession LALA ou Britpressor</li></ul>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/7dNx7dHDR84?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-cap">Vidéo : réussir sa Glue Compression à tous les coups</p>
+<p class="g-p"><strong>IMPORTANT — Ne pas skip :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/585fdb97-734d-4610-b2e0-5df8522f6238/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<h3 class="g-h"><strong>La compression parallèle</strong></h3>
+<p class="g-p">La compression parallèle (aussi appelée “New York Compression”) est LA technique des pros pour <strong>avoir des drums puissantes sans tuer la dynamique</strong>.</p>
+<p class="g-p">C’est plus un bonus : utilise ça si vraiment tu manques de punch.</p>
+<p class="g-p"><strong>Comment faire :</strong></p>
+<ul class="g-list"><li>Duplique ton bus batterie vers une piste parallèle.</li><li>Sur la piste parallèle, mets un compresseur <strong>très agressif</strong> : Ratio élevé (8:1 ou 10:1), Attack rapide, Release rapide.</li><li>Diminue le ratio jusqu’à ce que ça compresse fort.</li><li>Dose cette piste compressée avec la piste originale (non ou peu compressée).</li></ul>
+<p class="g-p">Résultat : tu gardes les attaques naturelles, mais tu ajoutes un “mur de punch” en dessous.</p>
+<h3 class="g-h"><strong>Le transient shaper</strong></h3>
+<p class="g-p">Un transient shaper est comme une loupe sur le punch de ta batterie :</p>
+<ul class="g-list"><li>Plus d’attaque → kick/snare plus percutants.</li><li>Moins d’attaque → batterie plus douce, utile pour calmer des cymbales trop agressives.</li><li>Plus de sustain → snares, kicks et cymbales plus longues</li><li>Moins de sustain → batterie plus sèche et plus contrôlée.</li></ul>
+<p class="g-p">Le but ici, c’est d’augmenter légèrement l’attaque et de diminuer le sustain. Dans certains cas, ça va aider à faire ressortir les transitoires un peu plus, et à moins faire baver les éléments de ta batterie.</p>
+<p class="g-p">Résultat : plus clean, plus tranchant, plus ancré dans le mix.</p>
+<p class="g-p"><strong>Plugins conseillés :</strong></p>
+<ul class="g-list"><li><a href="https://www.pluginboutique.com/products/10882?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">SPL Transient Designer</a></li><li><a href="https://www.pluginboutique.com/product/3-Studio-Tools/71-Dynamic-Processor/11006-Transient-Master?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Native Instruments Transient Master</a></li><li>Slate Digital Transient Shaper (mon préféré)</li></ul>
+<p class="g-p"><strong>Alternatives gratuites :</strong></p>
+<ul class="g-list"><li>Smartelectronix Dominion</li><li>Auburn Sounds Couture (version gratuite)</li><li>TDR Nova (un peu détourné)</li></ul>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/3bd32f7d-e934-4c29-bab1-6879103f73b6/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-5">
+    <div class="g-ch-head"><span class="g-ch-num">05</span><h2 class="g-ch-title">Gestion de l’espace et du headroom</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Ton bus batterie doit être puissant, <strong>mais laisser de la place au reste du mix</strong>. Non seulement pour que tout soit cohérent mais également pour garder du <strong><em>headroom</strong></em>.</p>
+<p class="g-p">On va donc optimiser la dynamique de la batterie. Tu as plusieurs manières de le faire.</p>
+<h3 class="g-h"><strong>Le clipping</strong></h3>
+<p class="g-p"><strong>Comment faire :</strong></p>
+<ul class="g-list"><li>Mets un soft clipper après ta compression.</li><li>Descends le seuil jusqu’à ce que les crêtes soient légèrement coupées (1-3 dB max).</li><li>Écoute bien : ça doit rester punchy, pas écrasé.</li></ul>
+<p class="g-p"><strong>Plugins conseillés :</strong> <a href="https://www.pluginboutique.com/product/2-Effects/8-Compressor/13281-bx-clipper?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">bx_clipper</a> (Brainworx), StandardClip (Sir Audio Tools), T-RackS Soft Clipper.</p>
+<p class="g-p"><strong>Alternatives gratuites :</strong></p>
+<ul class="g-list"><li>GVST GClip</li><li>LVC Audio ClipShifter (version gratuite)</li></ul>
+<h3 class="g-h"><strong>Le limiteur</strong></h3>
+<p class="g-p">Un limiteur peut être utilisé après le clipper si vraiment ta batterie dépasse encore trop.</p>
+<p class="g-p">Mon go-to pour ça : <a href="https://www.pluginboutique.com/products/3955?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-L2</a> (ou Ozone Maximizer).</p>
+<p class="g-p">Choisis le type d’algorithme qui te convient (mes préférés sont “Transparent” et “Modern”).</p>
+<ul class="g-list"><li>Attack longue (&gt;3000ms)</li><li>Release courte (&lt;20ms)</li><li>Channel linking à 0%</li><li>0,5 à 1,5 dB de réduction de gain</li><li>Objectif : sécurité, pas écrasement.</li></ul>
+<p class="g-p"><strong>Alternatives gratuites :</strong></p>
+<ul class="g-list"><li>LoudMax (Thomas Mundt)</li><li>Limiter №6 (Tokyo Dawn Labs)</li></ul>
+<h3 class="g-h"><strong>L’EQ (optionnelle)</strong></h3>
+<p class="g-p">Tu n’es pas obligé de mettre une EQ sur le bus batterie. Je te conseille de bien gérer tes EQ séparément sur les différentes pistes qui composent ta batterie.</p>
+<p class="g-p">Mais parfois, un petit ajustement global change tout.</p>
+<ul class="g-list"><li>Retire les <strong>bas-médiums boueux (200-400 Hz)</strong> si le son est étouffé.</li><li>Ajoute un peu d’<strong>air (10 kHz+)</strong> pour des cymbales et une snare plus brillantes</li><li>Équilibre la <strong>zone kick (60-80 Hz)</strong> et <strong>snare (150-250 Hz)</strong>.</li><li>Ajoute de la profondeur dans les basses</li></ul>
+<p class="g-p"><strong>Plugins conseillés :</strong> <a href="https://www.pluginboutique.com/products/14125?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-Q4</a>, <a href="https://www.pluginboutique.com/products/10183?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Pultec EQP-1A</a>.</p>
+<p class="g-p">Tu as toujours du mal avec tes EQ malgré des heures à bidouiller ton FabFilter Pro-Q4 et à regarder des tuto sur YouTube tous les soirs ?</p>
+<p class="g-p">C’est parce qu’il existe une multitude de familles différentes d’EQ (le FabFilter Pro-Q4 n’est qu’un EQ parmis tant d’autres, eux-mêmes faisant partie d’une seule famille d’EQ).</p>
+<p class="g-p">Chaque famille a ses propres caractéristiques sonores et techniques.</p>
+<p class="g-p">Et elles-mêmes regroupent une multitude d’EQ différents qu’il faut connaître. Et tous ces EQ sont à utiliser dans des cas bien précis (si tu les mets au hasard, ça ne sonnera pas bien).</p>
+<h3 class="g-h"><strong>Sonnox Inflator (bonus)</strong></h3>
+<p class="g-p">Inflator, c’est un plugin qui combine clipping (ou limiteur, j’avoue je sais pas trop), upward compression et EQ.</p>
+<p class="g-p">Si tu trouves que le tout manque légèrement de détails et de consistance, essaye Inflator en fin de chaîne.</p>
+<figure class="g-fig"><img src="/assets/guide-drum-bus/BhK4212kvtCJEiOsTMkDNGoFGucOxERV2fHEfr5q.png" alt="" loading="lazy" style="max-width:430px"></figure>
+<p class="g-cap">Sonnox Oxford Inflator</p>
+<p class="g-p"><strong>Alternatives gratuites :</strong></p>
+<ul class="g-list"><li>FerricTDS (Variety of Sound)</li><li>LoudMax (Thomas Mundt)</li></ul>
+<p class="g-p"><strong>IMPORTANT — Ne pas skip :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/25d42255-b0fb-496f-a91c-6ef7609b3d06/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/74UQphpNfYU?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-6">
+    <div class="g-ch-head"><span class="g-ch-num">06</span><h2 class="g-ch-title">Conclusion</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Avec cette méthode :</p>
+<ul class="g-list"><li>Ta batterie sonnera <strong>unie et cohérente</strong>.</li><li>Tu auras <strong>du punch sans écraser la dynamique</strong>.</li><li>Tu laisseras <strong>de la place pour le reste du mix</strong>.</li></ul>
+<p class="g-p"><strong>CONCLUSION À REGARDER :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/3dd48f24-b86e-4937-996e-d6ac957b186a/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mix-essentials/" target="_blank" rel="noopener">👉 Découvre le programme MIX Essentials en cliquant ici 👈</a></div>
+<h2 class="g-h">N’oublie pas</h2>
+<p class="g-p"><a href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">Rejoins le groupe</a> de discussion privée dès aujourd’hui. C’est le meilleur moyen pour avoir des feedbacks rapides et réponses à tes problématiques. Présente-toi aux autres membres en arrivant ;)</p>
+<p class="g-p">À tout de suite dans le groupe.</p>
+<p class="g-p">PS : si tu veux muscler ton game en mixage vocal, voici un autre guide complètement gratuit :</p>
+<figure class="g-fig"><img src="/assets/guide-drum-bus/rZdoUyVofkDlEKo1esVbeYajlHMzTZu9eo3XmwZC.png" alt="" loading="lazy" style="max-width:340px"></figure>
+  </section>
+  <section class="g-ch" id="ch-7">
+    <div class="g-ch-head"><span class="g-ch-num">07</span><h2 class="g-ch-title">QUICK WIN : La Saturation Sweet Spot</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <div class="g-video"><iframe src="https://app.videas.fr/embed/media/47821821-86fd-4714-9966-f289e71f657d/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mix-essentials/" target="_blank" rel="noopener">👉 Découvre le programme MIX Essentials en cliquant ici 👈</a></div>
+<h2 class="g-h"><strong>Ton problème</strong></h2>
+<p class="g-p">Tes drums sonnent &quot;plates&quot; et &quot;numériques&quot;, comme s’il leur manquait de la vie.</p>
+<p class="g-p">Résultat : le mix est mou, parce que les drums constituent l’élément principal (avec la voix) d’une musique…</p>
+<p class="g-p">…et tes drums ne ressortent bien que dans ton studio : dès que tu écoutes sur ton téléphone, ou dans ta voiture, c’est la défaite totale.</p>
+<p class="g-p">Alors ouvre ton DAW, mets-toi sur tes pistes de drums et suis ces petites étapes très rapides.</p>
+<h2 class="g-h"><strong>La solution express</strong></h2>
+<p class="g-p"><strong>Étape 1 :</strong> Sélectionne toutes tes pistes de batterie et envoie-les vers un bus (un &quot;groupe&quot; de pistes).</p>
+<p class="g-p"><strong>Étape 2 :</strong> Sur ce bus, ajoute un plugin de saturation analogique type Tape (exemple : <em>Virtual Tape Machine</em> de Slate Digital, <a href="https://www.wavesfactory.com/audio-plugins/cassette/" target="_blank" rel="noopener">Cassette Transport</a> gratuit, ou <a href="https://www.caelumaudio.com/CaelumAudio/?Page=TapeCassette2" target="_blank" rel="noopener">Tape Cassette 2</a> gratuit).</p>
+<p class="g-p">→ La saturation, c’est comme ajouter du grain ou de la texture, comme quand tu fais griller du pain.</p>
+<p class="g-p"><strong>Étape 3 :</strong> Règle l’intensité de la saturation → Pas trop : tu veux juste réchauffer, pas brûler !</p>
+<p class="g-p"><strong>Étape 4 :</strong> Compare le son avant/après (bypass le plugin).</p>
+<h2 class="g-h"><strong>Pourquoi ça marche</strong></h2>
+<p class="g-p">La saturation ajoute des harmoniques (des &quot;couleurs&quot; sonores) que le numérique pur n’a pas. C’est ce qui donne ce côté &quot;chaud&quot; et &quot;vintage&quot; des vieux vinyles ou des studios des années 70.</p>
+<p class="g-p">Ce qui a pour effet d’épaissir tes drums et de mieux les faire ressortir, même sur des enceintes pourries.</p>
+<p class="g-p"><strong>Résultat :</strong> Des drums avec du caractère, de la chaleur et de la personnalité.</p>
+<p class="g-p">Bravo à toi, tu viens de comprendre un aspect essentiel du mix : la texture. D’une extrême importance pour ressortir du lot.</p>
+<p class="g-p">Tu es en avance sur 70% des producteurs et ingénieurs du son indépendants.</p>
+<p class="g-p">Réponds-moi avec ton résultat (même un simple emoji 👍) dans le <a href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">groupe Telegram</a> !</p>
+  </section>
+
+</main>
+<footer class="smc-footer">
+  <span class="smc-footer-brand">SACHA <b>MUSIC CHARTS</b></span>
+  <div style="display:flex;gap:24px;">
+    <a class="footer-link" href="https://www.youtube.com/@SachaMusicCharts" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;text-decoration:none;">YouTube ↗</a>
+  </div>
+  <span class="smc-footer-copy">© — LGD Audio</span>
+</footer>
+<script src="/app.js"></script>
+<script>
+(function(){
+  /* Overlay transparent : par défaut il capte la molette/trackpad et fait
+     défiler la page (le scroll marche au-dessus des vidéos). Au CLIC il se
+     désactive (classe is-live) : le lecteur redevient 100% natif -> barre de
+     lecture, réglages, son, plein écran, pause… tout fonctionne. Quand la souris
+     quitte la vidéo, l'overlay se réactive pour que le scroll refonctionne. */
+  document.querySelectorAll('.g-video').forEach(function(w){
+    var f = w.querySelector('iframe');
+    var baseSrc = f.getAttribute('src');
+    var isYT = baseSrc.indexOf('youtube') >= 0;
+    var band = document.createElement('button');
+    band.type = 'button';
+    band.className = 'g-video__scroll';
+    band.setAttribute('aria-label', 'Lire la vidéo');
+    w.appendChild(band);
+    band.addEventListener('wheel', function(e){ window.scrollBy(0, e.deltaY); e.preventDefault(); }, {passive:false});
+    var started = false;
+    band.addEventListener('click', function(){
+      w.classList.add('is-live');
+      if (isYT) { try{ f.contentWindow.postMessage(JSON.stringify({event:'command', func:'playVideo', args:[]}), '*'); }catch(e){} }
+      else if (!started) { f.setAttribute('src', baseSrc + (baseSrc.indexOf('?')>=0?'&':'?') + 'autoplay=true'); started = true; }
+    });
+    w.addEventListener('mouseleave', function(){ w.classList.remove('is-live'); });
+  });
+})();
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[target="_blank"]');
+    if(!a) return;
+    if(/^https?:/i.test(a.getAttribute('href') || '')){
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener');
+    }
+  });
+})();
+</script>
+</body>
+</html>
