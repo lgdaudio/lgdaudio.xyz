@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastering Cheat Sheet — 5 réglages pour booster tes mastering</title>
+<meta name="description" content="Le guide complet du mastering : boost, compression glue, saturation, loudness, limiteur. 5 réglages simples et actionnables, plugins recommandés et alternatives, pour des masters pro.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Sacha Music Charts — LGD Audio">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='26' cy='50' r='6' fill='%23eeb927'/%3E%3Ctext x='40' y='46' font-family='Arial' font-size='15' font-weight='700' fill='%23f5f3ee'%3ESMC%3C/text%3E%3Ctext x='40' y='62' font-family='Arial' font-size='7' letter-spacing='1' fill='%23eeb927'%3EMUSIC CHARTS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<nav class="smc-nav">
+  <a href="/" class="smc-logo" aria-label="Accueil — Sacha Music Charts">
+    <span class="smc-dot"></span><span class="smc-logo-text">SACHA <b>MUSIC CHARTS</b></span>
+  </a>
+  <div id="nav-links" class="smc-nav-links">
+    <a href="/" class="smc-nav-link">Accueil</a>
+    <a href="/videos/" class="smc-nav-link">Vidéos</a>
+    <a href="/ressources/" class="smc-nav-link">Ressources</a>
+    <a href="/formations/" class="smc-nav-link">Formations</a>
+    <a href="/mastering/" class="smc-nav-link">Mastering</a>
+    <a href="/revtime/" class="smc-nav-link">RevTime</a>
+    <a href="/a-propos/" class="smc-nav-link">À propos</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<main class="smc-main">
+<style>
+  .g-hero{ text-align:center; padding:clamp(40px,7vw,80px) clamp(20px,5vw,32px) clamp(24px,4vw,36px); position:relative; overflow:hidden; }
+  .g-hero-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(60% 60% at 50% 0%, rgba(238,185,39,0.14), transparent 70%); }
+  .g-eyebrow{ position:relative; z-index:1; display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:#eeb927; border:1px solid rgba(238,185,39,0.35); border-radius:4px; padding:6px 14px; margin-bottom:20px; }
+  .g-hero h1{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(30px,5vw,50px); line-height:1.05; letter-spacing:-0.02em; color:#f5f3ee; margin:0 0 16px; }
+  .g-hero h1 span{ color:#eeb927; }
+  .g-hero p{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:300; font-size:clamp(16px,2vw,19px); line-height:1.6; color:#b8b4aa; max-width:600px; margin:0 auto; }
+  .g-toc{ max-width:760px; margin:clamp(24px,4vw,40px) auto 0; padding:0 clamp(20px,5vw,32px); display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+  .g-toc a{ display:flex; align-items:center; gap:12px; padding:11px 14px; border:1px solid rgba(255,255,255,0.07); border-radius:10px; background:#0c0c0c; text-decoration:none; color:#c8c4ba; font-family:'Manrope',sans-serif; font-weight:400; font-size:14.5px; line-height:1.3; transition:border-color .2s, color .2s, background .2s; }
+  .g-toc a:hover{ border-color:rgba(238,185,39,0.4); color:#f5f3ee; background:#111; }
+  .g-toc-n{ flex:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#eeb927; width:26px; }
+  .g-ch{ max-width:760px; margin:0 auto; padding:clamp(48px,7vw,86px) clamp(20px,5vw,32px) 0; scroll-margin-top:80px; }
+  .g-ch-head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .g-menu{ flex:none; margin-left:auto; align-self:center; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8a8781; text-decoration:none; border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px 12px; transition:color .2s, border-color .2s; }
+  .g-menu:hover{ color:#eeb927; border-color:rgba(238,185,39,0.45); }
+  .g-ch-num{ flex:none; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(26px,4vw,38px); line-height:1; color:rgba(238,185,39,0.9); letter-spacing:-0.02em; }
+  .g-ch-title{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(21px,3vw,30px); line-height:1.12; letter-spacing:-0.01em; color:#f5f3ee; margin:0; }
+  .g-h{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(17px,2.2vw,20px); line-height:1.3; color:#f5f3ee; margin:26px 0 4px; }
+  .g-h a{ color:#eeb927; }
+  .g-p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.75; color:#b8b4aa; margin:14px 0; }
+  .g-p strong{ color:#f5f3ee; font-weight:600; }
+  .g-p a, .g-cap a, .g-list a{ color:#eeb927; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(238,185,39,0.4); }
+  .g-free{ border-left:2px solid rgba(74,222,128,0.5); padding:10px 0 10px 16px; background:linear-gradient(90deg, rgba(74,222,128,0.06), transparent 90%); border-radius:0 8px 8px 0; }
+  .g-free strong{ color:#eafff0; }
+  .g-list{ margin:14px 0; padding:0; list-style:none; }
+  .g-list li{ position:relative; padding-left:22px; font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.6; color:#b8b4aa; margin-bottom:9px; }
+  .g-list li:before{ content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:#eeb927; }
+  .g-list li strong{ color:#f5f3ee; font-weight:600; }
+  .g-video{ position:relative; width:100%; padding-top:56.25%; margin:20px 0; border-radius:14px; overflow:hidden; background:#000; box-shadow:0 20px 50px rgba(0,0,0,0.5); }
+  .g-video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .g-video__scroll{ position:absolute; inset:0; z-index:3; cursor:pointer; background:transparent; border:0; padding:0; margin:0; -webkit-appearance:none; appearance:none; }
+  .g-video.is-live .g-video__scroll{ pointer-events:none; }
+  .g-fig{ margin:20px 0; text-align:center; }
+  .g-fig img{ width:100%; height:auto; display:block; margin:0 auto; border-radius:10px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 30px rgba(0,0,0,0.5); }
+  .g-cap{ font-family:'Manrope',sans-serif; font-style:italic; font-size:13.5px; color:#8a8781; text-align:center; margin:6px 0 4px; }
+  .g-cta-wrap{ text-align:center; margin:30px 0 6px; }
+  .g-cta{ display:inline-block; padding:16px 30px; background:#eeb927; color:#000; border-radius:2px; font-family:'IBM Plex Mono',monospace; font-size:13.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; line-height:1.4; }
+  .g-cta:hover{ filter:brightness(1.06); }
+  .g-tg{ max-width:760px; margin:clamp(40px,6vw,64px) auto 0; padding:0 clamp(20px,5vw,32px); }
+  .g-tg-in{ border:1px solid rgba(238,185,39,0.28); background:linear-gradient(180deg, rgba(238,185,39,0.06), transparent 70%),#0a0a0a; border-radius:16px; padding:clamp(22px,4vw,32px); text-align:center; }
+  .g-tg-in h3{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(18px,2.4vw,23px); color:#f5f3ee; margin:0 0 8px; }
+  .g-tg-in p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:16px; line-height:1.6; color:#b8b4aa; margin:0 0 18px; }
+</style>
+
+  <span id="top"></span>
+  <header class="g-hero">
+    <div class="g-hero-bg"></div>
+    <span class="g-eyebrow">Guide offert · Mastering Cheat Sheet</span>
+    <h1>5 réglages simples et ultra-actionnables pour <span>booster la qualité de tes mastering</span></h1>
+    <p>Le mastering, étape par étape : boost, compression glue, saturation, loudness, limiteur. Les plugins que j'utilise, leurs alternatives, et les vidéos qui montrent exactement comment faire.</p>
+  </header>
+<nav class="g-toc" id="sommaire"><a href="#ch-1"><span class="g-toc-n">01</span><span>Introduction</span></a>
+<a href="#ch-2"><span class="g-toc-n">02</span><span>À quoi sert le mastering ?</span></a>
+<a href="#ch-3"><span class="g-toc-n">03</span><span>Boost magique</span></a>
+<a href="#ch-4"><span class="g-toc-n">04</span><span>Compression glue</span></a>
+<a href="#ch-5"><span class="g-toc-n">05</span><span>Saturation</span></a>
+<a href="#ch-6"><span class="g-toc-n">06</span><span>Loudness parfait</span></a>
+<a href="#ch-7"><span class="g-toc-n">07</span><span>Limiteur</span></a>
+<a href="#ch-8"><span class="g-toc-n">08</span><span>Bonus</span></a>
+<a href="#ch-9"><span class="g-toc-n">09</span><span>QUICK WIN : Le Headroom Parfait pour le Mastering</span></a>
+<a href="#ch-10"><span class="g-toc-n">10</span><span>Conclusion (IMPORTANT)</span></a></nav>
+  <section class="g-ch" id="ch-1">
+    <div class="g-ch-head"><span class="g-ch-num">01</span><h2 class="g-ch-title">Introduction</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Tu viens de récupérer ce guide. Félicitations.</p>
+<p class="g-p"><strong>Ne skip pas cette vidéo :</strong></p>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/6e26ee8c-b0f5-46ac-a78b-b51324509a33/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p">Avant de continuer :</p>
+  </section>
+
+  <div class="g-tg">
+    <div class="g-tg-in">
+      <h3>Rejoins le groupe Telegram privé</h3>
+      <p>On y partage nos prods, nos problématiques de mix, et on s'entraide. Rien qu'avec ça, tu vas progresser 3x plus vite.</p>
+      <a class="g-cta" href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">Rejoindre le groupe →</a>
+    </div>
+  </div>
+
+  <section class="g-ch" id="ch-2">
+    <div class="g-ch-head"><span class="g-ch-num">02</span><h2 class="g-ch-title">À quoi sert le mastering ?</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Avant de partir dans les moindres réglages, tu dois <strong>comprendre</strong> à quoi sert le mastering.</p>
+<p class="g-p">Pourquoi ?</p>
+<p class="g-p">Parce que chaque traitement a un but bien précis, qui sert l’un des rôles du mastering.</p>
+<p class="g-p">Et si tu ignores ces rôles (tu les connaîtras à la fin de cette vidéo), alors tu masterises à l’aveugle… et tu détruis ton morceau.</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/jRRAzT_iFhM?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-3">
+    <div class="g-ch-head"><span class="g-ch-num">03</span><h2 class="g-ch-title">Boost magique</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>1️⃣ Un boost magique dans les aigus (sans agressivité) puis dans les graves</strong></h2>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/4c4c19ef-0e2e-491b-9a19-dde8be1e0e09/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Action :</strong> Ajoute un léger boost autour de 8-12 kHz avec un EQ shelf doux puis tout aussi léger sous les 60Hz avec un shelf également.</p>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<ul class="g-list"><li>Le boost dans les aigus apporte air, punch et clarté au master</li><li>Le boost des basses apporte rondeur et puissance.</li></ul>
+<p class="g-p">⚠️ <strong>Attention :</strong> Pas plus de <strong>2 à 4 dB</strong> de boost, sinon ça devient agressif.</p>
+<p class="g-p">👉 <strong>Mon plugin (avec lien direct) :</strong> <a href="https://www.pluginboutique.com/products/14125?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-Q4</a>, <a href="https://www.pluginboutique.com/products/13447?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Maag EQ4</a>, <a href="https://www.pluginboutique.com/products/6349?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">MasteringTheMix Mixroom</a>, <a href="https://www.pluginboutique.com/products/10183?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Pultec EQP-1A</a> ou <a href="https://www.pluginboutique.com/products/11498?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Manley Massive-Passive EQ</a>.</p>
+  </section>
+  <section class="g-ch" id="ch-4">
+    <div class="g-ch-head"><span class="g-ch-num">04</span><h2 class="g-ch-title">Compression glue</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>2️⃣ Compression glue : le secret du son cohérent</strong></h2>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/3SOk5w-ELgc?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Action :</strong> Ajoute une <strong>compression légère</strong> sur le master avec un <strong>Glue Compressor</strong></p>
+<p class="g-p"><strong>Réglages conseillés :</strong></p>
+<ul class="g-list"><li><strong>Ratio :</strong> 2:1</li><li><strong>Attack :</strong> 30 ms (pour laisser passer les transients)</li><li><strong>Release :</strong> Auto ou minimum</li><li><strong>Gain Reduction :</strong> 1 à 3 dB max</li></ul>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<ul class="g-list"><li>Ça “colle” le mix ensemble et renforce la cohésion des éléments.</li><li>Ça apporte ce côté <strong>pro et fluide</strong> qu’on retrouve dans les morceaux des labels.</li></ul>
+<p class="g-p">👉 <strong>Astuce bonus :</strong> Mets le <strong>Mix à 70%</strong> pour garder un peu de punch naturel.</p>
+<p class="g-p">👉 Mon plugin : <a href="https://www.pluginboutique.com/product/2-Effects/21-Channel-Strip/13325-SSL-4000-G-Bus-Compressor?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">SSL G Master Bus</a> ou <a href="https://www.pluginboutique.com/products/11953?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Manley Vari-Mu</a>.</p>
+<figure class="g-fig"><img src="/assets/guide-mastering/pWEMHZ54bhUnefKysvOI3pE1oE7UfgSHDKtOV4fU.png" alt="" loading="lazy" style="max-width:300px"></figure>
+<figure class="g-fig"><img src="/assets/guide-mastering/QHS4frVGVoBnpvb8VkhRtp3BBl0RnW24K7fA9epo.png" alt="" loading="lazy" style="max-width:560px"></figure>
+  </section>
+  <section class="g-ch" id="ch-5">
+    <div class="g-ch-head"><span class="g-ch-num">05</span><h2 class="g-ch-title">Saturation</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>3️⃣ La saturation subtile qui change tout</strong></h2>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/664bee54-9507-4983-8cba-643ea7fa9868/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Action :</strong> Ajoute <strong>une saturation douce en parallèle (ou direct)</strong> sur ton master.</p>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<ul class="g-list"><li>Ça ajoute de la chaleur et du corps au son.</li><li>Ça évite d’avoir un mix trop “froid” et numérique.</li></ul>
+<p class="g-p">👉 Mon plugin : Slate Digital Virtual Tape Machine ou <a href="https://www.pluginboutique.com/products/10185?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">UAD Studer A800</a>.</p>
+<p class="g-p">Pour un super loudness maîtrisé, ajoute une <a href="https://www.plugin-alliance.com/products/hg-2?_pos=1&amp;_psq=black&amp;_ss=e&amp;_v=1.0" target="_blank" rel="noopener">Black Box HG-2</a>.</p>
+<ul class="g-list"><li>Pentode à 55%</li><li>Triode à 45%</li><li>Saturation à ¼ environ</li><li>Mode Flat</li></ul>
+<p class="g-p">Règle le gain de sortie pour matcher l’entrée.</p>
+<figure class="g-fig"><img src="/assets/guide-mastering/aUT5JGz1c0v6D3NKb2wPAMjIrL5QLTHRAWQPgbdg.webp" alt="" loading="lazy" style="max-width:560px"></figure>
+  </section>
+  <section class="g-ch" id="ch-6">
+    <div class="g-ch-head"><span class="g-ch-num">06</span><h2 class="g-ch-title">Loudness parfait</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>4️⃣ Le loudness parfait sans sacrifier la dynamique</strong></h2>
+<p class="g-p"><strong>Action :</strong> Utilise un saturateur multibandes pour maximiser le loudness et faire ressortir ton mix sur n&#x27;importe quel système d&#x27;écoute.</p>
+<p class="g-p"><strong>Réglages conseillés : crée 2 bandes</strong></p>
+<ul class="g-list"><li><strong>Basses :</strong> de 20 à 150Hz. Type : Warm Tube.</li><li><strong>Médiums :</strong> de 500 à 4000Hz environ. Type : Tube ou Warm Tape.</li></ul>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<ul class="g-list"><li>Ça fait ressortir tes basses et tes médiums comme jamais, sur n’importe quel système d’écoute.</li><li>Ça maximise le loudness de ta track (le son paraît plus fort alors que le niveau reste le même)</li></ul>
+<p class="g-p">👉 <strong>Astuce bonus :</strong> Dose jusqu&#x27;à entendre subtilement la saturation puis reviens légèrement en arrière.</p>
+<p class="g-p">👉 Mon plugin : <a href="https://www.pluginboutique.com/products/6423?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Saturn 2</a>.</p>
+<figure class="g-fig"><img src="/assets/guide-mastering/pAnWJzDC45gNTT2O5oSa1ZSfHvZlpIZt34acgRxA.png" alt="" loading="lazy" style="max-width:560px"></figure>
+<p class="g-p">À propos du Loudness. Si tu veux un mastering fort, sans augmenter le niveau peak et sans utiliser de limiteur ni clippeur, regarde cette vidéo (qualité pro assurée) :</p>
+<div class="g-video"><iframe src="https://www.youtube.com/embed/T0nMVt1G2XI?modestbranding=1&amp;rel=0&amp;enablejsapi=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+  </section>
+  <section class="g-ch" id="ch-7">
+    <div class="g-ch-head"><span class="g-ch-num">07</span><h2 class="g-ch-title">Limiteur</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>5️⃣ Limite ton master comme un pro</strong></h2>
+<div class="g-video"><iframe src="https://app.videas.fr/embed/media/d916292a-5a00-40ec-8a85-6df9e023b460/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<p class="g-p"><strong>Action :</strong> utilise 2 limiteurs en série à la fin de ta mastering chain.</p>
+<p class="g-p"><strong>Comment ça marche :</strong></p>
+<ul class="g-list"><li>Le premier limiteur sert à atténuer les peaks les plus forts. Garde le même niveau d’entrée à la sortie du limiteur.</li><li>Le second limiteur te permet d’atteindre le niveau de loudness souhaité : utilise-le comme tu aurais utilisé un seul et même limiteur à la fin de ta mastering chain.</li></ul>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<p class="g-p">Car le premier limiteur va te faire gagner du headroom. Tu vas alors pouvoir taper plus fort dans ton second limiteur sans introduire de distorsion. Résultat : un mastering plus fort.</p>
+<p class="g-p">👉 <strong>Astuce bonus :</strong> désactive le « true peak limiting » de ton limiteur final et règle ton ceiling (niveau de sortie du limiteur) entre -0.2 et -0.5dB. Les transitoires ressortiront beaucoup mieux.</p>
+<p class="g-p">👉 Mon plugin : <a href="https://www.pluginboutique.com/products/3955?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">FabFilter Pro-L2</a>, <a href="https://www.pluginboutique.com/product/2-Effects/9-Limiter/495-Oxford-Limiter?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Sonnox Oxford Limiter</a> ou <a href="https://www.pluginboutique.com/product/2-Effects/52-Mastering-Suite/15794-FG-X-2?a_aid=6823304b2e974&amp;a_cid=1461e21b" target="_blank" rel="noopener">Slate Digital FG-X2</a></p>
+  </section>
+  <section class="g-ch" id="ch-8">
+    <div class="g-ch-head"><span class="g-ch-num">08</span><h2 class="g-ch-title">Bonus</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>6️⃣ Vérifie ton master avant de l’exporter</strong></h2>
+<p class="g-p"><strong>Action :</strong> Écoute ton master <strong>sur différents systèmes</strong> (écouteurs, voiture, enceintes de studio, téléphone).</p>
+<p class="g-p"><strong>Check final :</strong></p>
+<ul class="g-list"><li>Le kick et la basse sont-ils bien définis ?</li><li>Les voix ressortent-elles sans être trop agressives ?</li><li>Le son reste-t-il clair même sur des enceintes bas de gamme ?</li></ul>
+<p class="g-p"><strong>Pourquoi ?</strong></p>
+<ul class="g-list"><li>Un mix qui sonne bien <strong>partout</strong> est un mix pro.</li><li>Les pros testent toujours leurs masters sur <strong>plusieurs supports</strong> avant validation.</li></ul>
+<p class="g-p">👉 <strong>Astuce bonus :</strong> Mets ton track à <strong>volume très bas</strong> et écoute si tout reste clair. Si certains éléments disparaissent, retravaille ton équilibre.</p>
+<p class="g-p">👉 <strong>2e astuce bonus :</strong> utilise le kit Steven Slate VSX pour pré-écouter ton morceau grâce à des modélisations de salles directement dans le casque, et/ou le plugin Streamliner d’ADPTR Audio pour avoir un aperçu du son une fois publié sur les plateformes.</p>
+<figure class="g-fig"><img src="/assets/guide-mastering/S8okdax0w0aL89x1iqLHTdBFk8QpAZoGj8KjgGA4.png" alt="" loading="lazy" style="max-width:540px"></figure>
+<figure class="g-fig"><img src="/assets/guide-mastering/set5PEYHNiucba4eRR7LXaxRwWYipGk13cdiyBFK.png" alt="" loading="lazy" style="max-width:540px"></figure>
+  </section>
+  <section class="g-ch" id="ch-9">
+    <div class="g-ch-head"><span class="g-ch-num">09</span><h2 class="g-ch-title">QUICK WIN : Le Headroom Parfait pour le Mastering</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <h2 class="g-h"><strong>Ton problème</strong></h2>
+<p class="g-p">Ton mix est trop fort et &quot;clippe&quot; (il sature en rouge), ou alors tu ne sais pas à quel volume l&#x27;exporter pour le mastering.</p>
+<p class="g-p">Résultat : tu bounces ton mix et l’envoies pour le mastering mais…</p>
+<p class="g-p">Gros problème : le mix est détruit à cause du clipping et de la saturation numérique, et tu n’as aucune marge pour le mastering.</p>
+<p class="g-p">Alors ouvre ton DAW, mets-toi sur ta piste master et suis ces petites étapes très rapides.</p>
+<h2 class="g-h"><strong>La solution express</strong></h2>
+<p class="g-p"><strong>Étape 1 :</strong> Regarde ton fader master (le gros curseur principal de volume).</p>
+<p class="g-p"><strong>Étape 2 :</strong> Lance ta musique et observe les peaks (les pics de volume) sur le meter.</p>
+<p class="g-p">→ Les peaks, ce sont les moments les plus forts de ton morceau (comme la grosse caisse ou la snare).</p>
+<p class="g-p"><strong>Étape 3 :</strong> Baisse ton fader master (ou augmente-le) jusqu&#x27;à ce que tes peaks soient entre <strong>-6 dB et -3 dB maximum</strong>.</p>
+<p class="g-p">→ Imagine que c&#x27;est comme laisser de l&#x27;espace dans ta valise : le mastering pourra &quot;remplir&quot; cet espace sans tout casser.</p>
+<p class="g-p"><strong>Étape 4 :</strong> Exporte ton mix avec ce réglage.</p>
+<h2 class="g-h"><strong>Pourquoi ça marche</strong></h2>
+<p class="g-p">Le mastering a besoin d&#x27;espace (on appelle ça le &quot;headroom&quot;) pour travailler.</p>
+<p class="g-p">Si ton mix est déjà à 0 dB, c&#x27;est comme essayer de gonfler un ballon déjà plein : ça va exploser (= distorsion… + plein d’autres trucs négatifs).</p>
+<p class="g-p"><strong>Résultat :</strong> Un mix propre, prêt à être masterisé comme un pro.</p>
+<p class="g-p">Bravo, tu viens de comprendre comment préparer ton mastering comme un pro.</p>
+<p class="g-p">Tu es en avance sur 90% des producteurs et ingénieurs du son indépendants.</p>
+<p class="g-p">Réponds-moi avec ton résultat (même un simple emoji 👍) dans le <a href="https://t.me/+iicjoAVZbBtiOTVk" target="_blank" rel="noopener">groupe Telegram</a> !</p>
+  </section>
+  <section class="g-ch" id="ch-10">
+    <div class="g-ch-head"><span class="g-ch-num">10</span><h2 class="g-ch-title">Conclusion (IMPORTANT)</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <div class="g-video"><iframe src="https://app.videas.fr/embed/media/1b3f6350-3dc0-4fd9-82bf-63cf78967c86/?title=false&amp;logo=false" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen frameborder="0"></iframe></div>
+<div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mastering-system/" target="_blank" rel="noopener">Réussis tes mastering en 1h top chrono : découvre Mastering System</a></div>
+<p class="g-p">Récupère ton guide mixage vocal offert ici 👇</p>
+<figure class="g-fig"><a href="https://lgdaudio.xyz/guide-mixage-vocal/" target="_blank" rel="noopener"><img src="/assets/guide-mastering/rZdoUyVofkDlEKo1esVbeYajlHMzTZu9eo3XmwZC.png" alt="" loading="lazy" style="max-width:340px"></a></figure>
+<p class="g-p">Récupère ton guide mixage drum bus offert ici 👇</p>
+<figure class="g-fig"><a href="https://lgdaudio.xyz/guide-drum-bus/" target="_blank" rel="noopener"><img src="/assets/guide-mastering/uZ38yX0IlMqrzJGJDkGnFdvjzYs0oyixSqj3MecX.png" alt="" loading="lazy" style="max-width:340px"></a></figure>
+  </section>
+
+</main>
+<footer class="smc-footer">
+  <span class="smc-footer-brand">SACHA <b>MUSIC CHARTS</b></span>
+  <div style="display:flex;gap:24px;">
+    <a class="footer-link" href="https://www.youtube.com/@SachaMusicCharts" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;text-decoration:none;">YouTube ↗</a>
+  </div>
+  <span class="smc-footer-copy">© — LGD Audio</span>
+</footer>
+<script src="/app.js"></script>
+<script>
+(function(){
+  /* Overlay transparent : par défaut il capte la molette/trackpad et fait
+     défiler la page (le scroll marche au-dessus des vidéos). Au CLIC il se
+     désactive (classe is-live) : le lecteur redevient 100% natif -> barre de
+     lecture, réglages, son, plein écran, pause… tout fonctionne. Quand la souris
+     quitte la vidéo, l'overlay se réactive pour que le scroll refonctionne. */
+  document.querySelectorAll('.g-video').forEach(function(w){
+    var f = w.querySelector('iframe');
+    var isYT = f.getAttribute('src').indexOf('youtube') >= 0;
+    var band = document.createElement('button');
+    band.type = 'button';
+    band.className = 'g-video__scroll';
+    band.setAttribute('aria-label', 'Lire la vidéo');
+    w.appendChild(band);
+    band.addEventListener('wheel', function(e){ window.scrollBy(0, e.deltaY); e.preventDefault(); }, {passive:false});
+    band.addEventListener('click', function(){
+      w.classList.add('is-live');
+      // YouTube : lecture directe via l'API (son activé). Videas : on laisse la
+      // main au lecteur natif -> l'utilisateur clique sur play (son activé),
+      // car videas force le mute en autoplay.
+      if (isYT) { try{ f.contentWindow.postMessage(JSON.stringify({event:'command', func:'playVideo', args:[]}), '*'); }catch(e){} }
+    });
+    w.addEventListener('mouseleave', function(){ w.classList.remove('is-live'); });
+  });
+})();
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[target="_blank"]');
+    if(!a) return;
+    if(/^https?:/i.test(a.getAttribute('href') || '')){
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener');
+    }
+  });
+})();
+</script>
+</body>
+</html>

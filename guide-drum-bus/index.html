@@ -289,11 +289,12 @@
     band.setAttribute('aria-label', 'Lire la vidéo');
     w.appendChild(band);
     band.addEventListener('wheel', function(e){ window.scrollBy(0, e.deltaY); e.preventDefault(); }, {passive:false});
-    var started = false;
     band.addEventListener('click', function(){
       w.classList.add('is-live');
+      // YouTube : lecture directe via l'API (son activé). Videas : on laisse la
+      // main au lecteur natif -> l'utilisateur clique sur play (son activé),
+      // car videas force le mute en autoplay.
       if (isYT) { try{ f.contentWindow.postMessage(JSON.stringify({event:'command', func:'playVideo', args:[]}), '*'); }catch(e){} }
-      else if (!started) { f.setAttribute('src', baseSrc + (baseSrc.indexOf('?')>=0?'&':'?') + 'autoplay=true'); started = true; }
     });
     w.addEventListener('mouseleave', function(){ w.classList.remove('is-live'); });
   });
