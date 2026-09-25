@@ -1,6 +1,22 @@
 /* =========================================================
    Sacha Music Charts — logique du site (vanilla JS)
    ========================================================= */
+
+/* ---------- Statistiques de visite (GoatCounter) ----------
+   Compte les vues par page. Pour NE PAS compter tes propres visites :
+   ouvre n'importe quelle page avec ?skipgc (ex : lgdaudio.xyz/?skipgc)
+   une fois sur chaque navigateur/appareil que tu utilises. */
+(function () {
+  try {
+    if (location.search.indexOf('skipgc') > -1) localStorage.setItem('skipgc', 't');
+  } catch (e) {}
+  var s = document.createElement('script');
+  s.async = true;
+  s.setAttribute('data-goatcounter', 'https://lgdaudio.goatcounter.com/count');
+  s.src = 'https://gc.zgo.at/count.js';
+  document.head.appendChild(s);
+})();
+
 (() => {
   'use strict';
 
