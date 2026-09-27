@@ -48,7 +48,7 @@
   const GRID_MAX = 12;           // nombre max de vidéos affichées dans l'onglet "Vidéos"
 
   const RESOURCES = [
-    { title: 'Mixage Vocal', img: '/assets/guide-vocal.png', desc: 'La cheat sheet pour des voix propres et présentes.', tag: 'Guide', cta: 'Récupérer', url: 'https://www.bonzai.pro/sacha_musiccharts/lp/10957/vocal-cheat-sheet-offerte' },
+    { title: 'Mixage Vocal', img: '/assets/guide-vocal.png', desc: 'La cheat sheet pour des voix propres et présentes.', tag: 'Guide', cta: 'Récupérer', url: 'https://www.bonzai.pro/sacha_musiccharts/lp/10276/vocal-cheat-sheet-offerte' },
     { title: 'Mixage Drum Bus', img: '/assets/guide-drumbus.png', desc: 'Punch et cohésion sur ton bus batterie.', tag: 'Guide', cta: 'Récupérer', url: 'https://www.bonzai.pro/sacha_musiccharts/lp/10277/drum-bus-cheat-sheet-100-gratuite' },
     { title: 'Mastering', img: '/assets/guide-mastering.png', desc: 'Les réglages clés pour un master qui sonne fort et clair.', tag: 'Guide', cta: 'Récupérer', url: 'https://www.bonzai.pro/sacha_musiccharts/lp/10278/mastering-cheat-sheet' },
     { title: "Les termes essentiels de l'EQ", img: '/assets/guide-eq.png', desc: "Comprends enfin le vocabulaire de l'égalisation.", tag: 'Lexique', cta: 'Découvrir', url: 'https://www.bonzai.pro/sacha_musiccharts/lp/11011/les-termes-essentiels-pour-comprendre-leq' },
