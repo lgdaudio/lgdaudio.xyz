@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banger System — Le système complet pour des tracks qui claquent</title>
+<meta name="description" content="12 modules pour maîtriser chaque aspect du mixage et de la production : des tracks autoproduites qui claquent. Accès à vie, achat unique.">
+<link rel="canonical" href="https://lgdaudio.xyz/banger-system/">
+<meta name="author" content="Sacha Music Charts — LGD Audio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sacha Music Charts">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://lgdaudio.xyz/banger-system/">
+<meta property="og:title" content="Banger System — Le système complet pour des tracks qui claquent">
+<meta property="og:description" content="12 modules pour maîtriser chaque aspect du mixage et de la production. Accès à vie, achat unique.">
+<meta property="og:image" content="https://lgdaudio.xyz/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Banger System — Sacha Music Charts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Banger System — Le système complet pour des tracks qui claquent">
+<meta name="twitter:description" content="12 modules pour maîtriser chaque aspect du mixage et de la production. Accès à vie.">
+<meta name="twitter:image" content="https://lgdaudio.xyz/assets/og-image.png">
+<!-- Vérification Google Search Console : décommente et colle ton code (méthode "balise HTML"). -->
+<!-- <meta name="google-site-verification" content="COLLE_ICI_TON_CODE"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='26' cy='50' r='6' fill='%23eeb927'/%3E%3Ctext x='40' y='46' font-family='Arial' font-size='15' font-weight='700' fill='%23f5f3ee'%3ESMC%3C/text%3E%3Ctext x='40' y='62' font-family='Arial' font-size='7' letter-spacing='1' fill='%23eeb927'%3EMUSIC CHARTS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<nav class="smc-nav">
+  <a href="/" class="smc-logo" aria-label="Accueil — Sacha Music Charts">
+    <span class="smc-dot"></span><span class="smc-logo-text">SACHA <b>MUSIC CHARTS</b></span>
+  </a>
+  <div id="nav-links" class="smc-nav-links">
+    <a href="/" class="smc-nav-link">Accueil</a>
+    <a href="/videos/" class="smc-nav-link">Vidéos</a>
+    <a href="/ressources/" class="smc-nav-link">Ressources</a>
+    <a href="/formations/" class="smc-nav-link">Formations</a>
+    <a href="/mastering/" class="smc-nav-link">Mastering</a>
+    <a href="/revtime/" class="smc-nav-link">RevTime</a>
+    <a href="/a-propos/" class="smc-nav-link">À propos</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<main class="smc-main">
+<style>
+  /* Rangée 1 : sur mobile, la photo passe SOUS le texte */
+  @media (max-width:760px){ #me-row1{ flex-direction:column-reverse; } }
+  /* Photo qui remplit la hauteur du texte voisin (desktop) : l'image est en
+     position absolue pour ne pas imposer sa hauteur, c'est le texte qui pilote. */
+  .me-fillrow{ align-items:stretch; }
+  .me-fillrow > figure{ align-self:stretch; margin:0; position:relative; overflow:hidden; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,0.5); }
+  .me-fillrow > figure > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  @media (max-width:760px){
+    .me-fillrow{ align-items:center; flex-direction:column-reverse; }
+    .me-fillrow > figure{ position:static; width:100%; }
+    .me-fillrow > figure > img{ position:static; width:100%; height:auto; }
+  }
+  /* Extraits audio à la même hauteur que le texte voisin */
+  .me-audiorow{ align-items:stretch; }
+  .me-audiorow > div:first-child{ display:flex; flex-direction:column; justify-content:center; }
+  .me-audiorow > .me-audio-grid{ align-self:stretch; grid-auto-rows:1fr; }
+  .me-audiorow > .me-audio-grid > div{ display:flex; flex-direction:column; justify-content:center; }
+  @media (max-width:760px){
+    .me-audiorow{ align-items:center; }
+    .me-audiorow > div:first-child{ display:block; }
+    .me-audiorow > .me-audio-grid{ grid-auto-rows:auto; }
+  }
+  /* Puces / icônes réutilisables */
+  .me-li{ display:flex; gap:10px; margin-bottom:10px; }
+  .me-chk-w{ flex:none; color:rgba(245,243,238,0.5); font-size:12px; line-height:1.5; }
+  .me-x-red{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:rgba(255,90,90,0.12); border:1px solid rgba(255,90,90,0.4); color:#ff6b6b; font-size:11px; line-height:1; margin-top:1px; }
+  .me-chk-g{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:5px; background:rgba(74,222,128,0.14); border:1px solid rgba(74,222,128,0.45); color:#4ade80; font-size:12px; line-height:1; margin-top:1px; }
+  /* Tableau comparatif */
+  .cmp-tbl{ width:100%; border-collapse:collapse; min-width:640px; font-family:'Manrope',sans-serif; font-size:14px; }
+  .cmp-tbl th, .cmp-tbl td{ padding:13px 14px; text-align:center; border-bottom:1px solid rgba(255,255,255,0.08); color:#b8b4aa; }
+  .cmp-tbl thead th{ font-weight:600; color:#8a8781; font-size:13px; vertical-align:bottom; }
+  .cmp-tbl tbody th{ text-align:left; font-weight:500; color:#d8d4ca; }
+  .cmp-tbl .mix{ background:rgba(238,185,39,0.10); }
+  .cmp-tbl thead th.mix{ color:#eeb927; font-weight:700; font-size:15px; border-top-left-radius:10px; border-top-right-radius:10px; }
+  .cmp-tbl tbody tr:last-child td.mix{ border-bottom-left-radius:10px; border-bottom-right-radius:10px; }
+  .cmp-ok{ color:#4ade80; font-weight:700; }
+  .cmp-no{ color:#ff6b6b; }
+  /* Modules : 2×2 sur tablette, 4 colonnes sur ordinateur */
+  @media (min-width:761px) and (max-width:1000px){ .me-modules{ grid-template-columns:repeat(2,1fr) !important; } }
+</style>
+
+  <!-- HERO -->
+  <section style="position:relative;overflow:hidden;padding:clamp(26px,4.5vw,56px) clamp(20px,5vw,72px) clamp(24px,3.5vw,40px);">
+    <div class="hero-bg" style="position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(60% 55% at 78% 12%, rgba(238,185,39,0.14), transparent 70%),radial-gradient(50% 50% at 10% 90%, rgba(238,185,39,0.06), transparent 70%),linear-gradient(rgba(238,185,39,0.045) 1px, transparent 1px),linear-gradient(90deg, rgba(238,185,39,0.045) 1px, transparent 1px);background-size:auto, auto, 64px 64px, 64px 64px;-webkit-mask-image:radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);mask-image:radial-gradient(80% 80% at 50% 30%, #000 40%, transparent 100%);animation:smcDrift 14s linear infinite;"></div>
+    <div style="position:relative;z-index:2;max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <span style="display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:0.02em;color:#eeb927;margin-bottom:10px;">Banger System</span>
+        <h1 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 18px;color:#f5f3ee;">Le système complet pour des <span style="color:#eeb927;">tracks autoproduites</span> qui <span style="color:#eeb927;">claquent</span>.</h1>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0 0 24px;">Un bundle complet de 12 modules pour maîtriser chaque aspect du mixage et de la production, et une communauté privée, <strong style="color:#f5f3ee;font-weight:600;">pour passer de « on sent que ce n'est pas fini » à des morceaux qui sonnent pro.</strong></p>
+        <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Commence avec Banger System aujourd'hui →</a>
+      </div>
+      <figure style="flex:1 1 280px;margin:0;max-width:460px;">
+        <img src="/assets/banger-system.png" alt="Banger System — bundle de 12 modules de mixage et de production" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,0.6);">
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROBLÈME + SOLUTION + CRÉDIBILITÉ (rangées alternées) -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px) 0;">
+
+    <!-- Rangée 1 : photo à gauche, problèmes à droite -->
+    <div id="me-row1" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:center;">
+      <figure style="flex:1 1 280px;margin:0;max-width:380px;">
+        <img src="/assets/inge-son-retouche.png" alt="Sacha, ingénieur du son, en studio" loading="lazy" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,0.5);">
+      </figure>
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin:0 0 6px;"><strong style="color:#f5f3ee;font-weight:600;">Tu crées des instru, tu écris, ou tu produis tes propres morceaux.</strong></p>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin:0 0 20px;">Mais soyons honnêtes une seconde. Voici tes problèmes, ceux que tu connais trop bien :</p>
+        <ul style="list-style:none;padding:0;margin:0 0 20px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
+          <li style="display:flex;gap:12px;margin-bottom:14px;"><span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.4);color:#ff6b6b;font-size:11px;line-height:1;margin-top:1px;">✕</span><span>Tes idées sont bonnes… mais ça sonne cheap.</span></li>
+          <li style="display:flex;gap:12px;margin-bottom:14px;"><span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.4);color:#ff6b6b;font-size:11px;line-height:1;margin-top:1px;">✕</span><span>Tu passes des heures à bidouiller sans jamais être sûr de ce que tu fais.</span></li>
+          <li style="display:flex;gap:12px;margin-bottom:14px;"><span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.4);color:#ff6b6b;font-size:11px;line-height:1;margin-top:1px;">✕</span><span>YouTube t'a retourné le cerveau : trop d'infos, zéro structure.</span></li>
+          <li style="display:flex;gap:12px;margin-bottom:14px;"><span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.4);color:#ff6b6b;font-size:11px;line-height:1;margin-top:1px;">✕</span><span>Presets, plugins, IA, mastering auto… et pourtant rien ne claque vraiment.</span></li>
+          <li style="display:flex;gap:12px;margin-bottom:0;"><span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,90,90,0.12);border:1px solid rgba(255,90,90,0.4);color:#ff6b6b;font-size:11px;line-height:1;margin-top:1px;">✕</span><span>À la fin, t'as ce moment horrible : « Le son est cool… mais on sent que c'est pas fini. »</span></li>
+        </ul>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#d8d4ca;margin:0;">Et ça, ça tue la motivation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU : un bon mix -->
+  <section style="background:#141414;padding:clamp(28px,4vw,48px) clamp(20px,5vw,72px);margin-top:clamp(44px,6vw,80px);">
+    <p style="max-width:880px;margin:0 auto;text-align:center;font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#f5f3ee;">Un bon mix, ce n'est pas du feeling. Ce n'est pas « avoir une bonne oreille ». Ce n'est pas empiler des plugins comme un Pokémon shiny (erreur monumentale).</p>
+  </section>
+
+  <!-- SOLUTION + CRÉDIBILITÉ (rangées alternées) -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px) 0;">
+
+    <!-- Rangée 2 : texte à gauche, encadré solution à droite -->
+    <div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:stretch;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#f5f3ee;margin:0 0 16px;"><strong style="color:#f5f3ee;font-weight:600;">Le problème, ce n'est pas ton talent. C'est ton <span style="color:#eeb927;">système</span>.</strong></p>
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Tu n'as pas besoin de techniques compliquées trouvées sur YouTube ou TikTok, avec des outils que tu ne comprends pas. Parce que la vérité, c'est que tu as appris les choses à l'envers, dans le désordre.</p>
+      </div>
+      <div style="flex:1 1 280px;min-width:0;display:flex;">
+        <div style="border:1px solid rgba(74,222,128,0.28);background:rgba(74,222,128,0.06);border-radius:12px;padding:18px 22px;width:100%;display:flex;align-items:center;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:5px;background:rgba(74,222,128,0.14);border:1px solid rgba(74,222,128,0.45);color:#4ade80;font-size:12px;line-height:1;margin-top:2px;">✓</span>
+            <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#f5f3ee;margin:0;">La solution : une méthode <strong style="color:#eeb927;font-weight:600;">claire</strong>, <strong style="color:#eeb927;font-weight:600;">reproductible</strong> et des techniques <strong style="color:#eeb927;font-weight:600;">simples</strong> que tu appliques avec des outils que tu <strong style="color:#eeb927;font-weight:600;">maîtrises</strong>, apprises dans le <strong style="color:#eeb927;font-weight:600;">bon ordre</strong>. C'est comme ça que font réellement les pro. <span style="color:#9a968d;font-weight:400;">Et c'est exactement ce que Banger System t'apprend, module après module.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rangée 3 : photo à gauche, présentation à droite -->
+    <div class="me-fillrow" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;margin-top:clamp(52px,8vw,92px);">
+      <figure style="flex:1 1 280px;max-width:380px;">
+        <img src="/assets/image-pp.png" alt="Sacha Music Charts" loading="lazy">
+      </figure>
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;"><strong style="color:#f5f3ee;font-weight:600;">Je m'appelle Sacha</strong>, et depuis plus de 10 ans, j'ai réalisé des centaines de mix et mastering. Alors non, je n'ai jamais bossé pour Rihanna ni The Weeknd. Mais j'ai compris comment obtenir un mix de qualité professionnelle : pendant mes années d'études d'ingénieur du son, mes jobs dans des studios d'enregistrement et de mixage à New York et à Paris, et surtout pendant des années à comprendre chaque aspect du mix en profondeur.</p>
+      </div>
+    </div>
+
+    <!-- Rangée 4 : texte à gauche, extraits audio à droite -->
+    <div class="me-audiorow" style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;margin-top:clamp(52px,8vw,92px);">
+      <div style="flex:1 1 280px;min-width:0;">
+        <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;"><strong style="color:#f5f3ee;font-weight:600;">Aujourd'hui, je suis comme toi</strong> : j'ai juste un ordinateur, un casque que je connais par cœur ; pas de studio avec une acoustique traitée, pas d'enceintes à 3000€, pas de matériel hardware à 2000€ pièce. Et j'ai les mêmes résultats que des studios pro à 1000€ la journée. Voilà des exemples audio de ce que j'ai mixé et masterisé :</p>
+      </div>
+      <div class="me-audio-grid" style="flex:1 1 280px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Pop/Électronique</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Trap</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-2.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Afro House</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-3.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;background:#0a0a0a;">
+          <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#eeb927;border:1px solid rgba(238,185,39,0.35);border-radius:4px;padding:4px 10px;">Rock/Électronique</span>
+          <audio controls preload="metadata" src="/assets/mastering-apres-5.m4a" style="width:100%;margin-top:14px;display:block;"></audio>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:clamp(32px,5vw,48px);">
+      <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Banger System →</a>
+    </div>
+  </section>
+
+  <!-- PREUVES SOCIALES : bandeau + mur d'avis -->
+  <section style="background:#141414;padding:clamp(28px,4vw,52px) clamp(20px,5vw,72px);margin-top:clamp(28px,4vw,48px);">
+    <p style="max-width:880px;margin:0 auto;text-align:center;font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(17px,2vw,21px);line-height:1.6;color:#f5f3ee;">J'ai accompagné des centaines d'apprentis ingénieurs du son, beatmakers et artistes, tous satisfaits de l'aide que je leur ai apportée, et ils saluent mes méthodes d'enseignement et ma pédagogie.</p>
+  </section>
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(24px,3.5vw,40px) clamp(20px,5vw,72px) 0;">
+    <div style="column-width:200px;column-gap:16px;">
+      <img src="/assets/mix-avis-fred.jpg" alt="Retour client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-accueil.png" alt="Message de remerciement d'un artiste accompagné par Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-6.png" alt="Avis élève de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-1.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/mix-avis-pedago.png" alt="Commentaires saluant la pédagogie de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-7.png" alt="Avis élève de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-3.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-6.png" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-9.png" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-10.jpg" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/temoignage-8.png" alt="Témoignage client de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-10.png" alt="Avis élève de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+      <img src="/assets/avis-11.png" alt="Avis élève de Sacha Music Charts" loading="lazy" style="width:100%;display:block;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4);margin-bottom:16px;break-inside:avoid;">
+    </div>
+  </section>
+
+  <!-- CE QUE TU OBTIENS -->
+  <section style="max-width:1100px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) 0;">
+    <div style="max-width:760px;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin-bottom:8px;color:#f5f3ee;">Ce que tu obtiens avec Banger System</h2>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;margin-bottom:24px;">12 modules pour maîtriser (vraiment) chaque aspect du mixage et de la production :</p>
+    </div>
+
+    <div class="me-modules" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-vocal-pro.PNG" alt="VOCAL Pro — module de mixage de voix" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ VOCAL Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 199€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Des voix qui claquent, devant le mix.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Comprends et maîtrise le processus complet du mixage des voix</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des voix clean, présentes et qui se placent dans le mix</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Un workflow clair, rapide et reproductible</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-comp-insider.png" alt="COMP Insider — module de compression" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ COMP Insider</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 199€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">La nouvelle bible de la compression</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Une maîtrise totale de la compression</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des méthodes de compression claires</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Toute la compréhension de la dynamique (punch, glue, présence, consistance, etc.)</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des instruments et des voix qui s'assoient parfaitement dans le mix</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Des décisions de mix rapides, faciles et efficaces</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-eq-insider.png" alt="EQ Insider — module d'égalisation" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ EQ Insider</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 149€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Comprendre l'EQ pour de vrai.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Une maîtrise totale de l'EQ</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des méthodes d'égalisation claires</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Toute la compréhension du spectre fréquentiel</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des instruments et des voix qui prennent leurs places correctement dans le spectre</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Des solutions au muddiness, harshness et sifflantes rapides, faciles et efficaces</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-effets-temporels.png" alt="EFFETS Temporels — module reverb et delay" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ EFFETS Temporels</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 129€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Reverb &amp; delay sans noyer ton mix. Tu choisis, tu règles, tu contrôles.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Une maîtrise totale des reverb et delays</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Pas de mix plat, jamais.</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des méthodes d'utilisation claires et réglages clés</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Toute la compréhension des différents types de reverb et delay</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des instruments et des voix qui prennent la dimension stéréo qu'il faut</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Savoir ajouter de la profondeur à n'importe quel instrument</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-satur-pro.png" alt="SATUR Pro — module de saturation" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ SATUR Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 129€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Tout comprendre sur la saturation.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Une maîtrise totale de la saturation</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Pas de mix plat, jamais.</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des méthodes de saturation claires</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Toute la compréhension des différents types de saturation</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Savoir ajouter du grain, du caractère, de la vie</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-FX-motion.PNG" alt="FX Motion — module d'effets de modulation" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ FX Motion</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 99€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Les effets de modulation qui donnent du mouvement.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Tout savoir sur les effets de modulation (flanger, phaser, chorus, etc.)</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Apprendre comment donner du mouvement et de la largeur sans brouiller le mix</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Savoir travailler des sons qui vivent et attirent l'oreille</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-drums-pro.PNG" alt="DRUMS Pro — module de mixage de batterie" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ DRUMS Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 99€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Des drums puissantes et bien engluées.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Donner du punch, du poids et de la cohésion aux drums</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Avoir un kick et une basse qui cohabitent proprement</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Avoir des drums puissantes qui tapent sans exploser le peak</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-bus-system.PNG" alt="BUS System — module de traitement des bus" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ BUS System</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 99€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Traiter tes bus comme un pro.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Organiser et traiter ses bus efficacement</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Un mix soudé, clair et cohérent</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Le bus mix et le traitement de groupe</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Des décisions globales rapides et maîtrisées</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-rec-pro.PNG" alt="REC Pro — module d'enregistrement" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ REC Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 199€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Tout comprendre de l'enregistrement.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Capter des prises propres dès la source</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Chaîne de prise, niveaux et placement micro</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Moins de corrections, plus de qualité au départ</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Connaître le matériel et l'acoustique d'une pièce</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Des enregistrements prêts à être mixés</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-layer-pro.PNG" alt="LAYER Pro — module d'arrangement et de layering" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ LAYER Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 79€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Les techniques d'arrangement ultime.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Superposer les sons sans surcharger</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Des arrangements riches, clairs et équilibrés</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Créer des sons riches, larges et mémorables</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Un morceau qui respire et garde l'attention</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-synth-pro.PNG" alt="SYNTH Pro — module de synthèse sonore" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ SYNTH Pro</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 99€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Crée tes propres sons.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Tout savoir sur les synthétiseurs et la synthèse sonore</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Comprendre oscillateurs, filtres, enveloppes et autres éléments incontournables des synthétiseurs</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Concevoir tes propres patchs de A à Z</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Une signature sonore qui t'appartient</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#0a0a0a;">
+        <img src="/assets/module-spotify-insider.PNG" alt="SPOTIFY Insider — module de préparation des sorties" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#f5f3ee;margin:0;">✅ SPOTIFY Insider</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">valeur seul : 79€</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">Bien préparer tes sorties.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Préparer et livrer tes morceaux correctement</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span>Éviter les erreurs qui gâchent une sortie</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span>Des releases propres et pro</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(238,185,39,0.3);border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(238,185,39,0.07),transparent 55%),#0a0a0a;">
+        <img src="/assets/module-bonus-mode.png" alt="Bonus Banger System" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
+        <div style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+            <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#eeb927;margin:0;">🎁 Bonus</h3>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8781;">inclus</span>
+          </div>
+          <p style="font-family:'Manrope',sans-serif;font-weight:400;font-size:14px;line-height:1.5;color:#d8d4ca;margin:10px 0 10px;">En plus des 12 modules.</p>
+          <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:14px;line-height:1.5;color:#b8b4aa;">
+            <li class="me-li"><span class="me-chk-w">✓</span><span><strong style="color:#f5f3ee;font-weight:500;">Dico technique</strong> : tout le lexique du mixage à comprendre</span></li>
+            <li class="me-li"><span class="me-chk-w">✓</span><span><strong style="color:#f5f3ee;font-weight:500;">Plugin list</strong> : l'intégralité des plugins que je conseille</span></li>
+            <li class="me-li" style="margin-bottom:0;"><span class="me-chk-w">✓</span><span><strong style="color:#f5f3ee;font-weight:500;">Seller pro</strong> : des conseils perso pour ceux qui souhaitent vendre leurs prestations d'ingénieur du son</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:820px;">
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;margin:28px 0 12px;">En plus des 12 modules, tu reçois :</p>
+      <ul style="list-style:none;padding:0;margin:0 0 16px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#b8b4aa;">
+        <li style="display:flex;gap:12px;margin-bottom:10px;"><span class="me-chk-w">✓</span><span>Un accès exclusif à une <strong style="color:#f5f3ee;font-weight:500;">communauté Telegram privée</strong> (je réponds personnellement à toutes vos questions).</span></li>
+        <li style="display:flex;gap:12px;margin-bottom:10px;"><span class="me-chk-w">✓</span><span>Un <strong style="color:#f5f3ee;font-weight:500;">accès à vie</strong> à Banger System et à toutes ses futures mises à jour.</span></li>
+      </ul>
+    </div>
+    <div style="text-align:center;margin-top:clamp(40px,6vw,64px);">
+      <a class="btn-primary" href="#offre" style="display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Banger System →</a>
+    </div>
+  </section>
+
+  <!-- CE QUE CE N'EST PAS / CE QUE TU GAGNES (2 colonnes) -->
+  <section style="max-width:1040px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) 0;">
+    <div style="display:flex;gap:clamp(24px,4vw,48px);flex-wrap:wrap;align-items:flex-start;">
+      <div style="flex:1 1 280px;min-width:0;">
+        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que Banger System n'est PAS</h2>
+        <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.5;color:#b8b4aa;">
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Une formation fleuve de 60h.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un truc théorique chiant.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un « regarde-moi mixer pendant 2h ».</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Une usine à gaz dépendante de templates.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-x-red">✕</span><span>Un énième produit fait pour vendre, pas pour aider.</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-x-red">✕</span><span>Une formation chère pour n'apprendre que la théorie.</span></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 280px;min-width:0;">
+        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;color:#f5f3ee;">Ce que tu gagnes réellement</h2>
+        <ul style="list-style:none;padding:0;margin:0;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.5;color:#b8b4aa;">
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Des tracks qui sonnent pro, entièrement autoproduites.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Une méthode claire : moins de doutes, plus de flow.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Un output régulier sans te prendre la tête.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Un programme qui aborde toutes les notions du mixage, de A à Z.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Tu évites les erreurs communes de débutants.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>Tu comprends mieux l'origine des conflits et trouves les solutions adaptées.</span></li>
+          <li class="me-li" style="margin-bottom:12px;"><span class="me-chk-g">✓</span><span>La confiance de dire : « Oui, ce son est fini. »</span></li>
+          <li class="me-li" style="margin-bottom:0;"><span class="me-chk-g">✓</span><span>Le respect. Le tien, et celui des autres.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- À QUI C'EST DESTINÉ (bandeau) -->
+  <section style="background:#141414;padding:clamp(28px,4vw,48px) clamp(20px,5vw,72px);margin-top:clamp(56px,7vw,96px);">
+    <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.1;letter-spacing:-0.01em;margin:0 0 18px;color:#f5f3ee;">À qui c'est destiné</h2>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.4;color:#b8b4aa;">
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Débutants en mixage</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Bedroom producers</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Artistes indés</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Autodidactes frustrés</span></li>
+        <li style="display:flex;align-items:center;gap:8px;"><span style="color:#eeb927;">→</span><span>Apprentis ingénieurs du son</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRIX + CTA -->
+  <section id="offre" style="max-width:820px;margin:0 auto;padding:clamp(30px,4.5vw,50px) clamp(20px,5vw,72px) 100px;scroll-margin-top:90px;text-align:center;">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8a8781;margin-bottom:10px;">Valeur totale des 12 modules : <span style="display:inline-block;font-size:20px;line-height:1;vertical-align:middle;padding:0 3px;color:#8a8781;background-image:linear-gradient(to bottom right, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor calc(50% + 1px), transparent calc(50% + 1px));">1558€</span></p>
+    <div style="max-width:460px;margin:0 auto;border:1px solid rgba(238,185,39,0.3);border-radius:16px;padding:clamp(28px,4vw,44px);background:linear-gradient(180deg,rgba(238,185,39,0.07),transparent 60%),#0a0a0a;text-align:center;">
+      <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(38px,7vw,56px);line-height:1;color:#eeb927;letter-spacing:-0.02em;">247€</div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;margin:12px 0 26px;">Achat unique · Accès à vie · Paiement en 1x, 2x, 3x ou 4x</p>
+      <a class="btn-primary" href="https://sacha-music-charts.squidlane.com/buy/offr_fy5_tF950G" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Obtenir Banger System →</a>
+    </div>
+
+    <p style="font-family:'Manrope',sans-serif;font-weight:600;font-size:clamp(17px,2.2vw,22px);line-height:1.35;color:#f5f3ee;margin:clamp(44px,6vw,72px) auto 20px;max-width:640px;text-align:center;">Tous les autres moyens te coûtent plus cher en argent, en temps ou en efficacité</p>
+    <div style="overflow-x:auto;margin:0;">
+      <table class="cmp-tbl">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="mix">Banger System</th>
+            <th>IA</th>
+            <th>L'apprendre toi-même</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Coût</th><td class="mix"><strong style="color:#eeb927;">247€</strong></td><td>Abonnement mensuel et tokens limités</td><td>Gratuit</td></tr>
+          <tr><th>Pédagogie claire et éprouvée</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td><span class="cmp-no">✕</span></td></tr>
+          <tr><th>Programme complet de A à Z</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td>Oui, mais aucune structure</td></tr>
+          <tr><th>Accès à vie</th><td class="mix"><span class="cmp-ok">✓</span></td><td>Sans certitude</td><td>—</td></tr>
+          <tr><th>Communauté privée</th><td class="mix"><span class="cmp-ok">✓</span></td><td><span class="cmp-no">✕</span></td><td><span class="cmp-no">✕</span></td></tr>
+          <tr><th>Temps avant résultats</th><td class="mix">Quelques jours à quelques semaines</td><td>Aléatoire</td><td>Des années</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="max-width:720px;margin:clamp(44px,6vw,72px) auto 0;text-align:left;">
+      <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(21px,2.8vw,28px);line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px;color:#f5f3ee;">Questions fréquentes</h2>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">C'est pour les débutants ou les confirmés ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Les débutants et les plus avancés qui n'obtiennent pas les résultats souhaités. On part des bases et on va jusqu'aux réflexes de pro. Tu avances à ton rythme et tu reviens sur ce dont tu as besoin, quand tu veux.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Ça marche avec mon DAW (Logic, FL Studio, Ableton…) ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui. Ce sont des principes de mixage et de production universels, pas des presets figés : ils s'appliquent dans n'importe quel logiciel, avec les outils que tu as déjà.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Ça marche pour mon style de musique et mes instruments ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui, pour tout style de musique et tout instrument : les principes sont universels. Rap, pop, rock, électro, afro… voix, drums, synthés, guitares…</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Il me faut du matériel cher ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Non. Un ordinateur, un casque ou des enceintes corrects et ton DAW suffisent. J'obtiens des résultats pro avec exactement ce type de setup.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">L'accès est vraiment à vie ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Oui. Achat unique, accès à vie, et tu profites des nouveaux contenus et techniques ajoutés chaque mois sans repayer.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">En combien de temps je vois des résultats ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">Dès les premières sessions. Les méthodes sont faites pour être appliquées tout de suite sur tes propres morceaux, pas pour accumuler de la théorie sans but concret.</p>
+      <h3 style="font-family:'Manrope',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#f5f3ee;margin:22px 0 6px;">Comment se passe le paiement ?</h3>
+      <p style="font-family:'Manrope',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:#b8b4aa;margin:0;">En une fois ou en 2, 3 ou 4 fois, de façon 100% sécurisée. Tu reçois ton accès juste après l'achat.</p>
+    </div>
+    <div style="text-align:center;margin-top:clamp(36px,5vw,52px);">
+      <a class="btn-primary" href="https://sacha-music-charts.squidlane.com/buy/offr_fy5_tF950G" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:#eeb927;color:#000;border:none;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;">Commence avec Banger System aujourd'hui →</a>
+    </div>
+  </section>
+
+</main>
+<footer class="smc-footer">
+  <span class="smc-footer-brand">SACHA <b>MUSIC CHARTS</b></span>
+  <div style="display:flex;gap:24px;">
+    <a class="footer-link" href="https://www.youtube.com/@SachaMusicCharts" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;text-decoration:none;">YouTube ↗</a>
+  </div>
+  <span class="smc-footer-copy" id="footer-year">© — LGD Audio</span>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lgdaudio.xyz/#organization",
+      "name": "LGD Audio",
+      "url": "https://lgdaudio.xyz/",
+      "logo": "https://lgdaudio.xyz/assets/og-image.png",
+      "sameAs": ["https://www.youtube.com/@SachaMusicCharts"]
+    },
+    {
+      "@type": "Product",
+      "name": "Banger System",
+      "description": "Bundle complet de 12 modules pour maîtriser chaque aspect du mixage et de la production : VOCAL Pro, COMP Insider, EQ Insider, Effets Temporels, SATUR Pro, FX Motion, DRUMS Pro, BUS System, REC Pro, LAYER Pro, SYNTH Pro et SPOTIFY Insider. Accès à vie, achat unique, mises à jour incluses.",
+      "brand": { "@id": "https://lgdaudio.xyz/#organization" },
+      "url": "https://lgdaudio.xyz/banger-system/",
+      "offers": {
+        "@type": "Offer",
+        "price": "247",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lgdaudio.xyz/banger-system/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://lgdaudio.xyz/" },
+        { "@type": "ListItem", "position": 2, "name": "Formations", "item": "https://lgdaudio.xyz/formations/" },
+        { "@type": "ListItem", "position": 3, "name": "Banger System", "item": "https://lgdaudio.xyz/banger-system/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "C'est pour les débutants ou les confirmés ?", "acceptedAnswer": { "@type": "Answer", "text": "Les débutants et les plus avancés qui n'obtiennent pas les résultats souhaités. On part des bases et on va jusqu'aux réflexes de pro. Tu avances à ton rythme et tu reviens sur ce dont tu as besoin, quand tu veux." } },
+        { "@type": "Question", "name": "Ça marche avec mon DAW (Logic, FL Studio, Ableton…) ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Ce sont des principes de mixage et de production universels, pas des presets figés : ils s'appliquent dans n'importe quel logiciel, avec les outils que tu as déjà." } },
+        { "@type": "Question", "name": "Ça marche pour mon style de musique et mes instruments ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, pour tout style de musique et tout instrument : les principes sont universels. Rap, pop, rock, électro, afro, voix, drums, synthés, guitares…" } },
+        { "@type": "Question", "name": "Il me faut du matériel cher ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Un ordinateur, un casque ou des enceintes corrects et ton DAW suffisent. J'obtiens des résultats pro avec exactement ce type de setup." } },
+        { "@type": "Question", "name": "L'accès est vraiment à vie ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Achat unique, accès à vie, et tu profites des nouveaux contenus et techniques ajoutés chaque mois sans repayer." } },
+        { "@type": "Question", "name": "En combien de temps je vois des résultats ?", "acceptedAnswer": { "@type": "Answer", "text": "Dès les premières sessions. Les méthodes sont faites pour être appliquées tout de suite sur tes propres morceaux, pas pour accumuler de la théorie sans but concret." } },
+        { "@type": "Question", "name": "Comment se passe le paiement ?", "acceptedAnswer": { "@type": "Answer", "text": "En une fois ou en 2, 3 ou 4 fois, de façon 100% sécurisée. Tu reçois ton accès juste après l'achat." } }
+      ]
+    }
+  ]
+}
+</script>
+<script src="/app.js"></script>
+<script>
+// Un seul lecteur audio à la fois : jouer l'un met les autres en pause.
+document.querySelectorAll('audio').forEach(function(a){
+  a.addEventListener('play', function(){
+    document.querySelectorAll('audio').forEach(function(o){ if(o !== a) o.pause(); });
+  });
+});
+</script>
+</body>
+</html>
