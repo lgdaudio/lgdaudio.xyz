@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 5 piliers du mixage : par où commencer (et avec quels plugins)</title>
+<meta name="description" content="Les fondations d'un bon mix expliquées simplement : les 5 piliers (volumes, panoramique, dimension, fréquences, dynamique), par lequel commencer, et le plugin de base pour traiter chacun, sans rien dépenser.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Sacha Music Charts, LGD Audio">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ccircle cx='26' cy='50' r='6' fill='%23eeb927'/%3E%3Ctext x='40' y='46' font-family='Arial' font-size='15' font-weight='700' fill='%23f5f3ee'%3ESMC%3C/text%3E%3Ctext x='40' y='62' font-family='Arial' font-size='7' letter-spacing='1' fill='%23eeb927'%3EMUSIC CHARTS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<nav class="smc-nav">
+  <a href="/" class="smc-logo" aria-label="Accueil, Sacha Music Charts">
+    <span class="smc-dot"></span><span class="smc-logo-text">SACHA <b>MUSIC CHARTS</b></span>
+  </a>
+  <div id="nav-links" class="smc-nav-links">
+    <a href="/" class="smc-nav-link">Accueil</a>
+    <a href="/videos/" class="smc-nav-link">Vidéos</a>
+    <a href="/ressources/" class="smc-nav-link">Ressources</a>
+    <a href="/formations/" class="smc-nav-link">Formations</a>
+    <a href="/mastering/" class="smc-nav-link">Mastering</a>
+    <a href="/revtime/" class="smc-nav-link">RevTime</a>
+    <a href="/a-propos/" class="smc-nav-link">À propos</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<main class="smc-main">
+<style>
+  .g-hero{ text-align:center; padding:clamp(40px,7vw,80px) clamp(20px,5vw,32px) clamp(24px,4vw,36px); position:relative; overflow:hidden; }
+  .g-hero-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; background-image:radial-gradient(60% 60% at 50% 0%, rgba(238,185,39,0.14), transparent 70%); }
+  .g-eyebrow{ position:relative; z-index:1; display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:#eeb927; border:1px solid rgba(238,185,39,0.35); border-radius:4px; padding:6px 14px; margin-bottom:20px; }
+  .g-hero h1{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(30px,5vw,50px); line-height:1.05; letter-spacing:-0.02em; color:#f5f3ee; margin:0 0 16px; }
+  .g-hero h1 span{ color:#eeb927; }
+  .g-hero p{ position:relative; z-index:1; font-family:'Manrope',sans-serif; font-weight:300; font-size:clamp(16px,2vw,19px); line-height:1.6; color:#b8b4aa; max-width:600px; margin:0 auto; }
+  .g-toc{ max-width:760px; margin:clamp(24px,4vw,40px) auto 0; padding:0 clamp(20px,5vw,32px); display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+  .g-toc a{ display:flex; align-items:center; gap:12px; padding:11px 14px; border:1px solid rgba(255,255,255,0.07); border-radius:10px; background:#0c0c0c; text-decoration:none; color:#c8c4ba; font-family:'Manrope',sans-serif; font-weight:400; font-size:14.5px; line-height:1.3; transition:border-color .2s, color .2s, background .2s; }
+  .g-toc a:hover{ border-color:rgba(238,185,39,0.4); color:#f5f3ee; background:#111; }
+  .g-toc-n{ flex:none; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#eeb927; width:26px; }
+  .g-ch{ max-width:760px; margin:0 auto; padding:clamp(48px,7vw,86px) clamp(20px,5vw,32px) 0; scroll-margin-top:80px; }
+  .g-ch-head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .g-menu{ flex:none; margin-left:auto; align-self:center; display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8a8781; text-decoration:none; border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px 12px; transition:color .2s, border-color .2s; }
+  .g-menu:hover{ color:#eeb927; border-color:rgba(238,185,39,0.45); }
+  .g-ch-num{ flex:none; font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(26px,4vw,38px); line-height:1; color:rgba(238,185,39,0.9); letter-spacing:-0.02em; }
+  .g-ch-title{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(21px,3vw,30px); line-height:1.12; letter-spacing:-0.01em; color:#f5f3ee; margin:0; }
+  .g-h{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(17px,2.2vw,20px); line-height:1.3; color:#f5f3ee; margin:26px 0 4px; }
+  .g-h a{ color:#eeb927; }
+  .g-p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.75; color:#b8b4aa; margin:14px 0; }
+  .g-p strong{ color:#f5f3ee; font-weight:600; }
+  .g-p a, .g-cap a, .g-list a{ color:#eeb927; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(238,185,39,0.4); }
+  .g-free{ border-left:2px solid rgba(74,222,128,0.5); padding:10px 0 10px 16px; background:linear-gradient(90deg, rgba(74,222,128,0.06), transparent 90%); border-radius:0 8px 8px 0; }
+  .g-free strong{ color:#eafff0; }
+  .g-list{ margin:14px 0; padding:0; list-style:none; }
+  .g-list li{ position:relative; padding-left:22px; font-family:'Manrope',sans-serif; font-weight:300; font-size:17px; line-height:1.6; color:#b8b4aa; margin-bottom:9px; }
+  .g-list li:before{ content:""; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:#eeb927; }
+  .g-list li strong{ color:#f5f3ee; font-weight:600; }
+  .g-fig{ margin:20px 0; text-align:center; }
+  .g-fig img{ width:100%; height:auto; display:block; margin:0 auto; border-radius:10px; border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 30px rgba(0,0,0,0.5); }
+  .g-cta-wrap{ text-align:center; margin:30px 0 6px; }
+  .g-cta{ display:inline-block; padding:16px 30px; background:#eeb927; color:#000; border-radius:2px; font-family:'IBM Plex Mono',monospace; font-size:13.5px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; line-height:1.4; }
+  .g-cta:hover{ filter:brightness(1.06); }
+  .g-tg{ max-width:760px; margin:clamp(40px,6vw,64px) auto 0; padding:0 clamp(20px,5vw,32px); }
+  .g-tg-in{ border:1px solid rgba(238,185,39,0.28); background:linear-gradient(180deg, rgba(238,185,39,0.06), transparent 70%),#0a0a0a; border-radius:16px; padding:clamp(22px,4vw,32px); text-align:center; }
+  .g-tg-in h3{ font-family:'Manrope',sans-serif; font-weight:700; font-size:clamp(18px,2.4vw,23px); color:#f5f3ee; margin:0 0 8px; }
+  .g-tg-in p{ font-family:'Manrope',sans-serif; font-weight:300; font-size:16px; line-height:1.6; color:#b8b4aa; margin:0 0 18px; }
+  .g-pill{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; max-width:760px; margin:22px auto 0; padding:0 clamp(20px,5vw,32px); }
+  .g-pill span{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#c8c4ba; border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:7px 14px; }
+  .g-pill span b{ color:#eeb927; font-weight:500; }
+  .g-reco{ border:1px solid rgba(255,255,255,0.08); background:#0c0c0c; border-radius:12px; padding:14px 16px; margin:14px 0; }
+  .g-reco p{ margin:6px 0; }
+  .g-reco .g-reco-t{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#eeb927; margin:0 0 6px; }
+</style>
+
+  <span id="top"></span>
+  <header class="g-hero">
+    <div class="g-hero-bg"></div>
+    <span class="g-eyebrow">Guide offert</span>
+    <h1>Les <span>5 piliers du mixage</span></h1>
+    <p>Les fondations d'un bon mix, expliquées simplement : les 5 piliers, par lequel commencer pour partir dans les meilleures conditions, et le plugin de base pour traiter chacun, sans dépenser un centime.</p>
+  </header>
+  <div class="g-pill">
+    <span><b>1</b> · Volumes</span>
+    <span><b>2</b> · Panoramique</span>
+    <span><b>3</b> · Dimension</span>
+    <span><b>4</b> · Fréquences</span>
+    <span><b>5</b> · Dynamique</span>
+  </div>
+<nav class="g-toc" id="sommaire"><a href="#ch-1"><span class="g-toc-n">01</span><span>Les 5 piliers du mixage (et par où commencer)</span></a>
+<a href="#ch-2"><span class="g-toc-n">02</span><span>Les plugins de base, pilier par pilier</span></a></nav>
+
+  <section class="g-ch" id="ch-1">
+    <div class="g-ch-head"><span class="g-ch-num">01</span><h2 class="g-ch-title">Les 5 piliers du mixage</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Tu viens de récupérer ce guide. Félicitations.</p>
+    <p class="g-p">Avant de parler plugins, de réglages ou de « trucs de pro », il faut comprendre une chose : <strong>un mix repose sur 5 piliers.</strong> Cinq, pas plus. Si tu les maîtrises, tu tiens tout le mixage. Le reste, ce ne sont que des outils au service de ces piliers.</p>
+    <p class="g-p">On va les voir un par un, simplement.</p>
+
+    <h2 class="g-h"><strong>Pilier n°1 : Les volumes (la balance)</strong></h2>
+    <p class="g-p">C'est le niveau de chaque piste, les unes par rapport aux autres. La voix, le kick, la basse, les synthés… <strong>qui est devant, qui est derrière ?</strong> La balance, c'est décider de cette hiérarchie. C'est le socle de tout : avant même le moindre traitement, tu dois entendre clairement chaque élément à sa juste place.</p>
+
+    <h2 class="g-h"><strong>Pilier n°2 : Le panoramique</strong></h2>
+    <p class="g-p">C'est le placement de chaque son dans l'espace <strong>gauche ↔ droite</strong> (la stéréo). On désencombre le centre (souvent surchargé : kick, basse, voix lead…) en répartissant les autres éléments sur les côtés. Résultat : chaque instrument respire, a sa place, et le mix devient plus large et plus clair.</p>
+
+    <h2 class="g-h"><strong>Pilier n°3 : La dimension (la profondeur)</strong></h2>
+    <p class="g-p">Après la gauche-droite, voici <strong>l'avant ↔ arrière</strong>. C'est l'illusion de distance et d'espace, créée avec la reverb et le delay. Un son sec paraît proche ; un son réverbéré paraît lointain. C'est ce qui transforme un mix « plat » en un mix en 3D, avec de la profondeur.</p>
+
+    <h2 class="g-h"><strong>Pilier n°4 : Les fréquences</strong></h2>
+    <p class="g-p">C'est le partage du spectre sonore (graves / médiums / aigus) avec l'égaliseur (EQ). Chaque instrument occupe une zone de fréquences : le but est que <strong>chacun ait sa place sans se marcher dessus.</strong> On enlève ce qui est inutile, on dégage la boue, et on laisse respirer les éléments importants.</p>
+
+    <h2 class="g-h"><strong>Pilier n°5 : La dynamique</strong></h2>
+    <p class="g-p">C'est l'écart entre les moments forts et les moments faibles d'un son. La compression sert à <strong>maîtriser cet écart</strong> : rattraper les pics, stabiliser le niveau, apporter de la cohérence, du punch et de la présence. Un son bien géré dynamiquement reste toujours audible, sans disparaître ni exploser.</p>
+
+    <h2 class="g-h"><strong>Par où commencer un mixage ?</strong></h2>
+    <p class="g-p">La réponse tient en deux piliers, dans cet ordre :</p>
+    <ul class="g-list">
+      <li><strong>1. Les volumes (la balance)</strong> : tu règles le niveau de chaque piste à l'oreille, jusqu'à ce que tout soit équilibré.</li>
+      <li><strong>2. Le panoramique</strong> : tu places ensuite chaque son dans l'espace stéréo.</li>
+    </ul>
+    <p class="g-p">Et surtout : <strong>ne touche à aucun plugin de traitement</strong> (EQ, compression, reverb…) tant que ta balance et ton panoramique ne sont pas bons.</p>
+    <div class="g-free">
+      <p class="g-p"><strong>Pourquoi commencer par là ?</strong> Parce que peu importe le traitement flatteur que tu ajoutes ensuite : <strong>si la balance de départ est mauvaise, ton mix sera mauvais.</strong> Aucun plugin ne rattrapera des volumes mal réglés. Un bon mix se gagne d'abord au fader.</p>
+    </div>
+    <p class="g-p"><strong>Pour partir dans les meilleures conditions</strong>, garde aussi ces 3 réflexes :</p>
+    <ul class="g-list">
+      <li>Mixe à <strong>volume modéré</strong> (ni trop fort, ni trop faible) et fais des <strong>pauses</strong> régulières : tes oreilles se fatiguent et te mentent.</li>
+      <li>Compare souvent à un <strong>morceau de référence</strong> que tu aimes, dans le même style.</li>
+      <li>Laisse de la <strong>marge (headroom)</strong> : vise des pics autour de -6 dB sur ta piste master, tu auras de la place pour travailler proprement.</li>
+    </ul>
+  </section>
+
+  <div class="g-tg">
+    <div class="g-tg-in">
+      <h3>Rejoins mon canal Telegram privé</h3>
+      <p>J'y partage tout : mes nouvelles vidéos, mes nouvelles ressources et tutos ainsi que mes programmes d'apprentissage. Pour ne rien rater, ça se passe ici</p>
+      <a class="g-cta" href="https://t.me/+dC_cWHHnqflhN2Y8" target="_blank" rel="noopener">Rejoins le canal</a>
+    </div>
+  </div>
+
+  <section class="g-ch" id="ch-2">
+    <div class="g-ch-head"><span class="g-ch-num">02</span><h2 class="g-ch-title">Les plugins de base, pilier par pilier</h2><a class="g-menu" href="#top" aria-label="Retour en haut de la page">☰ Menu</a></div>
+    <p class="g-p">Chaque pilier se traite avec <strong>un seul type de plugin de base</strong>. La bonne nouvelle : tu as déjà tout ce qu'il faut.</p>
+    <div class="g-free">
+      <p class="g-p"><strong>À retenir avant tout :</strong> les plugins <strong>stock</strong> (ceux livrés gratuitement avec ton DAW : Logic, FL Studio, Ableton, Cubase…) sont <strong>largement suffisants</strong> et de très bonne qualité. Des hits planétaires sont mixés avec. Tu n'as <strong>pas besoin d'acheter quoi que ce soit</strong> pour faire un bon mix. Comprendre l'outil compte 100x plus que la marque du plugin.</p>
+    </div>
+
+    <h2 class="g-h"><strong>Pilier n°1 : Les volumes → le fader (et un Gain)</strong></h2>
+    <p class="g-p"><strong>Ce que c'est :</strong> un simple contrôle de niveau. Le fader de chaque piste, et un plugin de « Gain » quand tu veux ajuster le niveau avant les autres traitements (gain staging).</p>
+    <p class="g-p"><strong>Comment ça marche :</strong> tu montes ou tu baisses le volume de la piste jusqu'à ce qu'elle trouve sa place dans la balance. Un <strong>VU-mètre</strong> t'aide à équilibrer à l'œil en plus de l'oreille.</p>
+    <div class="g-reco">
+      <p class="g-reco-t">Mon conseil</p>
+      <p class="g-p">Le <strong>fader de ton DAW</strong> fait déjà 90 % du travail. Pour le gain staging : <strong>Gain</strong> (Logic), <strong>Utility</strong> (Ableton), <strong>Fruity Balance</strong> (FL Studio). Pour visualiser : un VU-mètre gratuit comme <strong>TBProAudio mvMeter2</strong> ou <strong>Youlean Loudness Meter</strong>. Aucun achat nécessaire.</p>
+    </div>
+
+    <h2 class="g-h"><strong>Pilier n°2 : Le panoramique → le Pan (et un imageur stéréo)</strong></h2>
+    <p class="g-p"><strong>Ce que c'est :</strong> le bouton de panoramique place le son à gauche ou à droite. Un imageur stéréo, lui, élargit ou resserre la largeur d'un son.</p>
+    <p class="g-p"><strong>Comment ça marche :</strong> le pan envoie plus de signal d'un côté que de l'autre. L'imageur agit sur la stéréo (les différences gauche/droite) pour rendre un son plus large… ou plus mono quand c'est nécessaire (basse, kick).</p>
+    <div class="g-reco">
+      <p class="g-reco-t">Mon conseil</p>
+      <p class="g-p">Le <strong>panoramique intégré</strong> de ton DAW suffit pour 95 % du job. Pour la largeur : l'imageur stock (<strong>Stereo Spread</strong> de Logic, la largeur de l'<strong>Utility</strong> d'Ableton, <strong>Fruity Stereo Shaper</strong> de FL) ou le gratuit <strong>Voxengo MSED</strong>. Rien à acheter.</p>
+    </div>
+
+    <h2 class="g-h"><strong>Pilier n°3 : La dimension → la Reverb &amp; le Delay</strong></h2>
+    <p class="g-p"><strong>Ce que c'est :</strong> la reverb simule un espace (une pièce, une salle), le delay répète le son dans le temps (un écho).</p>
+    <p class="g-p"><strong>Comment ça marche :</strong> sur une reverb, tu règles la <strong>taille</strong> de l'espace, la longueur de la queue (decay) et le pre-delay. Sur un delay, le <strong>temps</strong> entre les répétitions et le feedback (le nombre de répétitions). Plus un son est réverbéré ou retardé, plus il recule dans le mix.</p>
+    <div class="g-reco">
+      <p class="g-reco-t">Mon conseil</p>
+      <p class="g-p">La reverb et le delay <strong>stock</strong> de ton DAW sont excellents : <strong>ChromaVerb</strong> / <strong>Space Designer</strong> (Logic), <strong>Reverb</strong> &amp; <strong>Delay</strong> (Ableton), <strong>Fruity Reverb 2</strong> &amp; <strong>Fruity Delay</strong> (FL). Si tu veux UN gratuit culte en plus : <strong>Valhalla Supermassive</strong>. Pour régler ton decay et ton pre-delay pile sur le tempo, utilise <a href="/revtime/">RevTime</a>.</p>
+    </div>
+
+    <h2 class="g-h"><strong>Pilier n°4 : Les fréquences → l'EQ (égaliseur)</strong></h2>
+    <p class="g-p"><strong>Ce que c'est :</strong> l'égaliseur augmente ou atténue certaines bandes de fréquences d'un son.</p>
+    <p class="g-p"><strong>Comment ça marche :</strong> tu choisis une <strong>fréquence</strong>, une largeur (le Q) et un <strong>gain</strong> (boost ou coupe). En pratique : tu coupes ce qui est inutile (graves parasites, boue dans les bas-médiums, sifflantes), et tu laisses de la place à chaque instrument dans son registre.</p>
+    <div class="g-reco">
+      <p class="g-reco-t">Mon conseil</p>
+      <p class="g-p">L'EQ paramétrique <strong>stock</strong> est parfait : <strong>Channel EQ</strong> (Logic), <strong>EQ Eight</strong> (Ableton), <strong>Parametric EQ 2</strong> (FL). La référence « pro » si un jour tu veux investir : <strong>FabFilter Pro-Q</strong>. Un gratuit excellent : <strong>TDR Nova</strong>. Mais honnêtement, ton EQ stock fait exactement le même travail.</p>
+    </div>
+
+    <h2 class="g-h"><strong>Pilier n°5 : La dynamique → le Compresseur</strong></h2>
+    <p class="g-p"><strong>Ce que c'est :</strong> le compresseur réduit l'écart entre les parties fortes et faibles d'un son.</p>
+    <p class="g-p"><strong>Comment ça marche :</strong> le <strong>threshold</strong> (seuil) décide à partir de quel niveau il agit, le <strong>ratio</strong> dose la force, l'<strong>attack</strong> et le <strong>release</strong> gèrent la vitesse. Résultat : les pics sont rattrapés, le niveau devient stable, et le son gagne en cohérence, en présence et en punch.</p>
+    <div class="g-reco">
+      <p class="g-reco-t">Mon conseil</p>
+      <p class="g-p">Le compresseur <strong>stock</strong> fait très bien le job : <strong>Compressor</strong> (Logic), <strong>Compressor</strong> (Ableton), <strong>Fruity Limiter</strong> / <strong>Fruity Compressor</strong> (FL). Les références que tu croiseras un jour : les émulations de <strong>1176</strong> et <strong>LA-2A</strong>, ou <strong>FabFilter Pro-C</strong>. Un gratuit top : <strong>TDR Kotelnikov</strong>. Encore une fois : le stock suffit largement.</p>
+    </div>
+
+    <p class="g-p">Voilà. Avec ces 5 outils (que tu as déjà), tu peux traiter les 5 piliers et faire un vrai bon mix. <strong>Souviens-toi de l'ordre :</strong> volumes → panoramique → dimension → fréquences → dynamique. Ce n'est pas une règle rigide, mais une colonne vertébrale fiable pour ne jamais être perdu.</p>
+
+    <p class="g-p">Pour aller plus loin et <strong>maîtriser vraiment</strong> chacun de ces piliers (avec l'EQ, la compression, les effets temporels et la saturation) avec des méthodes claires et actionnables, découvre le programme <strong>MIX Essentials</strong> : le bundle ultime pour maîtriser les bases du mixage.</p>
+    <figure class="g-fig"><img src="/assets/mix-essentials.png" alt="MIX Essentials" loading="lazy" style="max-width:320px"></figure>
+    <div class="g-cta-wrap"><a class="g-cta" href="https://lgdaudio.xyz/mix-essentials/" target="_blank" rel="noopener">Voir le programme MIX Essentials</a></div>
+  </section>
+
+</main>
+<footer class="smc-footer">
+  <span class="smc-footer-brand">SACHA <b>MUSIC CHARTS</b></span>
+  <div style="display:flex;gap:24px;">
+    <a class="footer-link" href="https://www.youtube.com/@SachaMusicCharts" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8781;text-decoration:none;">YouTube ↗</a>
+  </div>
+  <span class="smc-footer-copy">© LGD Audio</span>
+</footer>
+<script src="/app.js"></script>
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[target="_blank"]');
+    if(!a) return;
+    if(/^https?:/i.test(a.getAttribute('href') || '')){
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener');
+    }
+  });
+})();
+</script>
+</body>
+</html>
