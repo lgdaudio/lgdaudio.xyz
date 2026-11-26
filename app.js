@@ -481,8 +481,32 @@
     if (yearEl) yearEl.textContent = '© ' + new Date().getFullYear() + ' — LGD Audio';
   }
 
+  /* ---------- Liens légaux ajoutés en bas de chaque page ---------- */
+  const LEGAL_LINKS = [
+    { href: '/conditions-generales/', label: 'Conditions générales' },
+    { href: '/confidentialite/', label: 'Confidentialité' },
+    { href: '/remboursement/', label: 'Remboursements' },
+  ];
+  function buildLegalLinks() {
+    document.querySelectorAll('.smc-footer').forEach((footer) => {
+      if (footer.querySelector('.smc-footer-legal')) return;
+      const nav = document.createElement('nav');
+      nav.className = 'smc-footer-legal';
+      nav.setAttribute('aria-label', 'Informations légales');
+      LEGAL_LINKS.forEach(({ href, label }) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        if (location.pathname === href) a.setAttribute('aria-current', 'page');
+        nav.appendChild(a);
+      });
+      footer.appendChild(nav);
+    });
+  }
+
   /* ---------- Init (chaque fonction ne fait rien si sa section est absente) ---------- */
   setActiveNav();
+  buildLegalLinks();
   initYouTube();
   buildResources();
   buildFormations();
